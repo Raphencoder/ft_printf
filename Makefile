@@ -6,11 +6,11 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/07 16:43:40 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/07 21:15:07 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 		ft_printf.a
+NAME = 		ft_printf.
 
 HEADER =	includes
 
