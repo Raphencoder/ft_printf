@@ -6,13 +6,21 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:23:20 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/07 16:42:49 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/11 19:18:59 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_filllst(char *str)
+/*
+**	This function will take the original string 'format' and divide it in link
+**	chain.
+**	When the function spot the '%', it created a new link.
+**	It calls the function mvinlst who will help to set the flags.
+**/
+
+
+t_case		**ft_fillstr(char *format)
 {
 	int	i;
 	char	*str;
@@ -33,7 +41,7 @@ int		ft_filllst(char *str)
 			str = str + i;
 			i = 1;
 		}
-		while (!(ft_isspec(str[i])) && str[i])
+		while (!(ft_findspec(str[i])) && str[i])
 			i++;
 		i++;
 		ft_newblck(str, i, start);
@@ -42,12 +50,13 @@ int		ft_filllst(char *str)
 		i++;
 	}
 	free(tmp);
+	ft_mvinlst(*start);
+	return (start);
 	ft_printlst(*start);
-	return (0);
 }
 
 int main()
 {
-	ft_printf("helloworld%232%+23zdwhatsup");
+	ft_fillstr("hell%#-+ 056.32ioworld%232%+23zdwhatsup");
 	return (0);
 }

@@ -6,11 +6,15 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 16:24:08 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/07 16:25:31 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/11 19:20:13 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+**	This function will spot if the character passed in parameter is a 'flag' 
+*/
 
 int		ft_isflag(char c)
 {

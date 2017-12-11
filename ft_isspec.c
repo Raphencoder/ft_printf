@@ -6,13 +6,18 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:08:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/06 18:04:32 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/11 19:23:11 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_findspec(char c)
+/*
+**	This function check is the character 'c' is a specfier.
+*/
+
+
+int		ft_isspec(char c)
 {
 	if (c == 'd' || c == 'i' || c == 'u' || c == 'o' || c == 'x' || c == 'X')
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/07 16:43:22 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/11 18:22:04 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ typedef	struct	s_flag
 	int		plus;
 	int		less;
 	int		space;
+	int		dot;	
 	int		sharp;
 	int		zero;
+	int		width;
 
 }				t_flag;
 
@@ -37,8 +39,10 @@ typedef	struct	s_case
 
 }					t_case;
 
-int     ft_printf(const char * restrict format, ...);
+t_case	ft_fillstr(char *str);
 void	ft_newblck(char *str, int i, t_case **start);
 void	ft_printlst(t_case *start);
 int		ft_isspec(char c);
+void	ft_mvinlst(t_case *block);
+void	ft_putflags(t_case *block);
 #endif

@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/07 21:15:52 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/11 17:47:07 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,20 @@ HEADER =	includes
 
 P_SRC = 	ft_newblck.c \
 			ft_printlst.c \
-			ft_printf.c \
+			ft_fillstr.c \
+			ft_findspec.c \
 			ft_isspec.c \
+			ft_mvinlst.c \
+			ft_putflags.c
+			
 
 P_OBJ =		ft_newblck.o \
 			ft_printlst.o \
-			ft_printf.o \
-			ft_isspec.o
+			ft_fillstr.o \
+			ft_isspec.o \
+			ft_findspec.o \
+			ft_mvinlst.o \
+			ft_putflags.o
 
 L_SRC =		./libft/ft_putchar.c \
 			./libft/ft_putstr.c \

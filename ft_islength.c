@@ -6,9 +6,16 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 16:17:51 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/07 16:23:37 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/11 19:21:53 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
+
+/*
+**	This function check if the specific character at the 'i' position is a
+**	'length' type.
+*/
 
 int		ft_islength(char *str, int i)
 {
