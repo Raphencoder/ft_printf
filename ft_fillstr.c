@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:23:20 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/11 19:18:59 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/11 20:27:20 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	chain.
 **	When the function spot the '%', it created a new link.
 **	It calls the function mvinlst who will help to set the flags.
-**/
+*/
 
 
 t_case		**ft_fillstr(char *format)
