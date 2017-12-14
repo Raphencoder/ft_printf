@@ -6,7 +6,7 @@
 /*   By: Raphael <raphaelkriefbm@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 12:49:10 by Raphael           #+#    #+#             */
-/*   Updated: 2017/12/06 13:14:56 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/13 17:00:45 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int					ft_toupper(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
+int					ft_intisdigit(int c);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strstr(const char *haystack, const char *needle);

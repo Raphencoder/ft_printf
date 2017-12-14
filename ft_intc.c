@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlst.c                                      :+:      :+:    :+:   */
+/*   ft_intc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 16:34:04 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 21:34:33 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/14 20:57:44 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/14 21:02:46 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printlst(t_case *start)
+char	*ft_intc(char c)
 {
-	if ((*start).next != NULL)
-		ft_printlst((*start).next);
-	ft_putstr((*start).content);
+	char *str;
+
+	str = (char*)ft_memalloc(sizeof(char) * 2);
+	str[0] = c;
+	str[1] = '\0';
+	return (str);
 }

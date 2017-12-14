@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:23:20 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/11 20:27:20 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/14 21:16:46 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_case		**ft_fillstr(char *format)
 			str = str + i;
 			i = 1;
 		}
-		while (!(ft_findspec(str[i])) && str[i])
+		while (!(ft_isspec(str[i])) && str[i])
 			i++;
 		i++;
 		ft_newblck(str, i, start);
@@ -53,10 +53,4 @@ t_case		**ft_fillstr(char *format)
 	ft_mvinlst(*start);
 	return (start);
 	ft_printlst(*start);
-}
-
-int main()
-{
-	ft_fillstr("hell%#-+ 056.32ioworld%232%+23zdwhatsup");
-	return (0);
 }

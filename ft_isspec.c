@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:08:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/11 19:23:11 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/14 21:16:18 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ int		ft_isspec(char c)
 		return (1);
 	if (c == 'a' || c == 'A' || c == 'c' || c == 's' || c == 'p' || c == '%')
 		return (1);
-	if (c == 'S' || c == 'n')
+	if (c == 'S' || c == 'n' || c == 'b')
 		return (1);
+	if (c == 'D' || c == 'O' || c == 'U')
+	{
+		c = ft_tolower(c);
+		return (1);
+	}
 	return (0);
 }

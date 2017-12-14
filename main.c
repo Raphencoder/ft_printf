@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlst.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 16:34:04 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 21:34:33 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/14 21:22:29 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/14 21:38:34 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./includes/ft_printf.h"
+#include <stdio.h>
 
-void	ft_printlst(t_case *start)
+int main()
 {
-	if ((*start).next != NULL)
-		ft_printlst((*start).next);
-	ft_putstr((*start).content);
+	char str[] ="coucou";
+	printf("%s\n", str);
+	ft_printf("%s", str);
+	return (0);
 }

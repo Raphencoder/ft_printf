@@ -6,9 +6,11 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:47:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/11 19:13:27 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/14 20:56:47 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 /*
 **	This function return a string that begin with the first length(hh, h, ..)
@@ -25,11 +27,11 @@ char 	*ft_grepspec(char *str)
 	i = 0;
 	j = 0;
 
-	while (!ft_islength(str[i]))
+	while (!ft_islength(str, i))
 			i++;
 	i = j;
 	while (ft_isspec(str[i]))
 		i++;
-	clone = ft_strsub(str, j, i - j - 1);
+	clone = ft_strsub(str, j, (i - j - 1));
 	return (clone);
 }

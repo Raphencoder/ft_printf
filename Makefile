@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/11 17:47:07 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/14 21:35:33 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,38 @@ P_SRC = 	ft_newblck.c \
 			ft_findspec.c \
 			ft_isspec.c \
 			ft_mvinlst.c \
-			ft_putflags.c
+			ft_putflags.c \
+			ft_isflag.c \
+			ft_issigned.c \
+			ft_islength.c \
+			ft_applyflag.c \
+			ft_printf.c \
+			ft_findspec.c \
+			ft_choosebase.c \
+			ft_grepspec.c \
+			ft_intc.c \
+			ft_scs.c
 			
 
 P_OBJ =		ft_newblck.o \
-			ft_printlst.o \
 			ft_fillstr.o \
+			ft_printlst.o \
 			ft_isspec.o \
 			ft_findspec.o \
 			ft_mvinlst.o \
-			ft_putflags.o
+			ft_putflags.o \
+			ft_isflag.o \
+			ft_issigned.o \
+			ft_islength.o \
+			ft_applyflag.o \
+			ft_printf.o \
+			ft_findspec.o \
+			ft_choosebase.o \
+			ft_grepspec.o \
+			ft_intc.o \
+			ft_scs.o
+
+
 
 L_SRC =		./libft/ft_putchar.c \
 			./libft/ft_putstr.c \
