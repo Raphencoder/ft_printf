@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 21:39:10 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 18:59:47 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,19 @@ int		ft_printf(char const * restrict format, ...)
 	va_start(arglst, format);
 	start = ft_fillstr((char*)format);
 	block = *start;
-	while (block->next != NULL)
-	{
-		block->content = ft_findspec(block, arglst);
-		block->content = ft_applyflag(block, arglst);
-		block = block->next;
-	}
+//	ft_printlst(*start);
+//	while (block->next != NULL)
+//	{
+//		block->content = ft_findspec(block, arglst);
+//		block->content = ft_applyflag(block, block->content);
+//		block = block->next;
+//	}
 //	block->content = ft_findspec(block, arglst);
-//	block->content = ft_applyflag(block, arglst);
+//	if (((block->content)[0]) == '%')
+//			block->content = ft_applyflag(block, block->content);
+	ft_call(block, arglst);
 	ft_printlst(*start);
+	ft_putchar('\n');
 	va_end(arglst);
 	return (0);
 }

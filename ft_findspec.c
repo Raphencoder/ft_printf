@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 21:03:52 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 19:44:29 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,20 @@
 **	This function will identify wich function to call depending on the
 **  comparison between the 'str' passed in parameter and the string that i
 **	will write.
-** 	\\\\\\\---MANQUE C, S, P ET N----///////
 */
 
 char	*ft_findspec(t_case *block, va_list arglst)
 {
 	char	*s;
 
+	ft_putflags(block);
 	s = ft_grepspec(block->content);
+	if (block->flag.spec)
+		block->flag.spec = ft_takespec(s);
+//	ft_putendl(s);
+	if (s == NULL)
+		return (block->content);
+//	ft_putendl(s);
 	if ((ft_strequ(s, "d") || ft_strequ(s, "i") || ft_strequ(s, "hhd") || 
 ft_strequ(s, "hhi") || ft_strequ(s, "hd") || ft_strequ(s, "hi")) || 
 (ft_strequ(s, "ld") || ft_strequ(s, "li")) || ft_strequ(s, "lld") || 

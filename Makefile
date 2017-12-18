@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/14 21:35:33 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/18 19:43:30 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ HEADER =	includes
 P_SRC = 	ft_newblck.c \
 			ft_printlst.c \
 			ft_fillstr.c \
+			ft_takespec.c \
 			ft_findspec.c \
 			ft_isspec.c \
 			ft_mvinlst.c \
@@ -30,12 +31,14 @@ P_SRC = 	ft_newblck.c \
 			ft_choosebase.c \
 			ft_grepspec.c \
 			ft_intc.c \
-			ft_scs.c
+			ft_scs.c \
+			ft_call.c
 			
 
 P_OBJ =		ft_newblck.o \
 			ft_fillstr.o \
 			ft_printlst.o \
+			ft_takespec.o \
 			ft_isspec.o \
 			ft_findspec.o \
 			ft_mvinlst.o \
@@ -49,9 +52,9 @@ P_OBJ =		ft_newblck.o \
 			ft_choosebase.o \
 			ft_grepspec.o \
 			ft_intc.o \
-			ft_scs.o
-
-
+			ft_scs.o \
+			ft_call.o
+			
 
 L_SRC =		./libft/ft_putchar.c \
 			./libft/ft_putstr.c \
@@ -179,7 +182,7 @@ FLAG =		-Wall -Werror -Wextra
 
 all :		$(NAME)
 
-$(NAME) :
+$(NAME) :	
 			@gcc -c -I$(HEADER) $(P_SRC) $(L_SRC)
 			@ar rc $(NAME) $(L_OBJ) $(P_OBJ)
 

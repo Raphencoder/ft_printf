@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:47:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 20:56:47 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 16:55:30 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,27 @@ char 	*ft_grepspec(char *str)
 	int		i;
 	int		j;
 	char	*clone;
+	int		check;
+
+	check = 0;
 	i = 0;
 	j = 0;
-
-	while (!ft_islength(str, i))
-			i++;
-	i = j;
-	while (ft_isspec(str[i]))
+	if (str[0] != '%')
+		return (NULL);
+	i++;
+	while ((!ft_isspec(str[i]) && str[i]))
 		i++;
-	clone = ft_strsub(str, j, (i - j - 1));
-	return (clone);
+	if (ft_isspec(str[i]))
+	{
+		j = i;
+		while (!ft_islength(str, i) && i > 0)
+			i--;
+		if (i == 0)
+			return (ft_intc(str[j]));
+		while (ft_islength(str, i))
+			i--;
+		i++;
+		return (ft_strsub(str, i, (j - i + 1)));
+	}
+	return (NULL);
 }

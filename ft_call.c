@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newblck.c                                       :+:      :+:    :+:   */
+/*   ft_call.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 14:09:39 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 16:55:25 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/18 18:40:24 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/18 19:27:05 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-**	This function create a new link with the string passed in parameter, the 
-**	content of the link start at the 'i' position, and the t_case **start
-**	is the beginning of the linked list
-*/
-
-void	ft_newblck(char *str, int i, t_case **start)
+void	ft_call(t_case *block, va_list arglst)
 {
-	t_case	*block;
-
-	if ((block = (t_case*)ft_memalloc(sizeof(t_case))) == NULL)
-		return ;
-	block->content = ft_strndup(str, i);
-	block->next = *start;
-	*start = block;
+	if (block->next != NULL)
+		ft_call(block->next, arglst);
+	block->content = ft_findspec(block, arglst);
+	if (block->flag.spec)
+		block->content = ft_applyflag(block, block->content);
+	return ;
 }

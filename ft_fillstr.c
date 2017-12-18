@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:23:20 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 21:16:46 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 17:21:58 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_case		**ft_fillstr(char *format)
 	start = (t_case**)ft_memalloc(sizeof(t_case*));
 	i = 0; 
 	str = ft_strdup(format);
-	tmp = str;
 	while (str[i])
 	{
 		while (str[i] != '%' && str[i])
@@ -41,6 +40,8 @@ t_case		**ft_fillstr(char *format)
 			str = str + i;
 			i = 1;
 		}
+		if (str[i] == '%')
+			i++;
 		while (!(ft_isspec(str[i])) && str[i])
 			i++;
 		i++;
@@ -50,7 +51,6 @@ t_case		**ft_fillstr(char *format)
 		i++;
 	}
 	free(tmp);
-	ft_mvinlst(*start);
+//	ft_mvinlst(*start);
 	return (start);
-	ft_printlst(*start);
 }
