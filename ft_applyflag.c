@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 19:23:52 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 19:48:49 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 20:29:49 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ char		*ft_applyflag(t_case *block, char *s)
 		block->flag.plus = 0;
 		sign = 1;
 	}
-	if (block->flag.less)
+	if (block->flag.less && !ft_ischar(block->flag.spec))
 		s = ft_strjoin(s, ft_scs(block->flag.width - ft_strlen(s), ' '));
-	if (block->flag.space)
+	if (block->flag.space && !ft_ischar(block->flag.spec))
 	{
-		if (block->flag.plus)
+		if (block->flag.plus && !ft_ischar(block->flag.spec))
 			 return (s);
 		if (ft_issigned(s))
 			return (s);
@@ -39,7 +39,7 @@ char		*ft_applyflag(t_case *block, char *s)
 		else
 			s = ft_strjoin(" ", s);
 	}
-	if (block->flag.zero && !block->flag.less)
+	if (block->flag.zero && !block->flag.less && !ft_ischar(block->flag.spec))
 	{
 		if (block->flag.plus || sign)
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s) - 1, '0'), s);
@@ -47,12 +47,14 @@ char		*ft_applyflag(t_case *block, char *s)
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), '0'), s);
 
 	}
-	if (block->flag.plus || sign)
+	if ((block->flag.plus || sign) && !ft_ischar(block->flag.spec))
 	{
 		if (sign)
 			s = ft_strjoin("-", s);
 		else
 			s = ft_strjoin("+", s);
-	}	
+	}
+	else if (block->flag.width)
+		s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), ' '), s);
 	return (s);
 }

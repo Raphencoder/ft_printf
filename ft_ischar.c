@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_call.c                                          :+:      :+:    :+:   */
+/*   ft_ischar.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 18:40:24 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 20:51:26 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/18 20:18:12 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/18 20:21:04 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_call(t_case *block, va_list arglst)
+int		ft_ischar(char c)
 {
-	char *s;
-
-	s = "(null)";
-	if (block->next != NULL)
-		ft_call(block->next, arglst);
-	block->content = ft_findspec(block, arglst);
-	if (block->content == NULL)
-		block->content = ft_strdup(s);
-	if (block->flag.spec)
-		block->content = ft_applyflag(block, block->content);
-	return ;
+	if (c == 's' || c == 'S' || c == 'c' || c == 'C')
+		return (1);
+	return (0);
 }

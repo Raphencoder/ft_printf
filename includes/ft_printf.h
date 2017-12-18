@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 19:43:53 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 21:17:51 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void    	ft_call(t_case *block, va_list arglst);
 int			ft_isspec(char c);
 int			ft_takespec(char *s);
 int     	ft_isflag(char c);
+int     	ft_ischar(char c);
 int     	ft_issigned(char *str);
 int     	ft_islength(char *str, int i);
 char		*ft_applyflag(t_case *block, char *str);
@@ -57,6 +58,6 @@ char    	*ft_findspec(t_case *block, va_list arglst);
 char		*ft_scs(int nb, char c);
 char		*ft_choosebase(char *str);
 char    	*ft_grepspec(char *str);
-char		*ft_intc(char c);
+char		*ft_intc(char c, t_case *block);
 t_case      **ft_fillstr(char *format);
 #endif

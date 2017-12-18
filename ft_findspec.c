@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 19:44:29 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 21:17:36 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*ft_findspec(t_case *block, va_list arglst)
 	s = ft_grepspec(block->content);
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
-//	ft_putendl(s);
 	if (s == NULL)
 		return (block->content);
 //	ft_putendl(s);
@@ -50,7 +49,7 @@ ft_strequ(s, "lb") || ft_strequ(s, "llb") || ft_strequ(s, "jb") ||
 ft_strequ(s, "tb") || ft_strequ(s, "zb") || ft_strequ(s, "p")))
 			return (ft_choosebase(s));
 	else if ((ft_strequ(s, "c")))
-			return (ft_intc(*s));
+			return (ft_intc(va_arg(arglst, int), block));
 	else if (ft_strequ(s, "s"))
 			return (va_arg(arglst, char*));
 	return (0);

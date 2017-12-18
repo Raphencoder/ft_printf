@@ -6,18 +6,20 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 20:57:44 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/14 21:02:46 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 21:17:34 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_intc(char c)
+char	*ft_intc(char c, t_case *block)
 {
 	char *str;
 
-	str = (char*)ft_memalloc(sizeof(char) * 2);
+	if ((str = (char*)ft_memalloc(sizeof(char) * 2)) == NULL)
+		return (NULL);
 	str[0] = c;
-	str[1] = '\0';
+	if (c == 0)
+		block->content_size = 1;
 	return (str);
 }

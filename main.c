@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 21:22:29 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 19:49:54 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/18 21:13:52 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int main()
 {
-	char str[] ="+123";
+	char c;
 	int i;
 
-	i = -6;
-	   printf("o-%+0s\n", str);
-	ft_printf("m-%+0s\n", str);
+	i = -4;
+	   printf("o-%c\n", 0);
+	ft_printf("m-%c\n", 0);
 	return (0);
 }

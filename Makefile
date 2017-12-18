@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/18 19:43:30 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/18 20:21:35 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ P_SRC = 	ft_newblck.c \
 			ft_isflag.c \
 			ft_issigned.c \
 			ft_islength.c \
+			ft_ischar.c \
 			ft_applyflag.c \
 			ft_printf.c \
 			ft_findspec.c \
@@ -37,6 +38,7 @@ P_SRC = 	ft_newblck.c \
 
 P_OBJ =		ft_newblck.o \
 			ft_fillstr.o \
+			ft_ischar.o \
 			ft_printlst.o \
 			ft_takespec.o \
 			ft_isspec.o \
