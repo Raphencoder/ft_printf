@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/18 20:21:35 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/19 16:58:48 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -180,12 +180,12 @@ L_OBJ =		ft_putchar.o \
 			ft_lstmap.o \
 			ft_strndup.o
 
-FLAG =		-Wall -Werror -Wextra
+FLAG =		 -Wall -Werror -Wextra -g
 
 all :		$(NAME)
 
 $(NAME) :	
-			@gcc -c -I$(HEADER) $(P_SRC) $(L_SRC)
+			@gcc -c -I$(HEADER) $(FLAG) $(P_SRC) $(L_SRC)
 			@ar rc $(NAME) $(L_OBJ) $(P_OBJ)
 
 clean :

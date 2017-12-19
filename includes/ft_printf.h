@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 21:17:51 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 17:09:54 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef	struct	s_flag
 {
-	int		spec;
+	intmax_t		spec;
 	int		plus;
 	int		less;
 	int		space;
@@ -54,9 +54,10 @@ int     	ft_issigned(char *str);
 int     	ft_islength(char *str, int i);
 char		*ft_applyflag(t_case *block, char *str);
 int     	ft_printf(char const * restrict format, ...);
+char        *ft_itoast(size_t nbr);
 char    	*ft_findspec(t_case *block, va_list arglst);
 char		*ft_scs(int nb, char c);
-char		*ft_choosebase(char *str);
+char		*ft_choosebase(char *str, uintmax_t nb);
 char    	*ft_grepspec(char *str);
 char		*ft_intc(char c, t_case *block);
 t_case      **ft_fillstr(char *format);

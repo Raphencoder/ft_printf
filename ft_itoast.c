@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoast.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/12 15:51:08 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 14:24:07 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/19 14:20:18 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/19 16:03:52 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int		ft_len_int(int n)
+static int      ft_len_int(uintmax_t n)
 {
-	if (n < 0)
-		n = -n;
 	if (n < 10)
 		return (1);
 	else
 		return (ft_len_int(n / 10) + 1);
 }
 
-static char		*ft_while_itoa(int len_int, char *str, int nbr)
+static char     *ft_while_itoa(uintmax_t len_int, char *str, uintmax_t nbr)
 {
 	while (len_int >= 0)
 	{
@@ -33,27 +31,21 @@ static char		*ft_while_itoa(int len_int, char *str, int nbr)
 	return (str);
 }
 
-char			*ft_itoa(int nbr)
+char            *ft_itoast(size_t nbr)
 {
-	char	*str;
-	int		len_int;
-	int		m;
+	char    *str;
+	uintmax_t    len_int;
+	uintmax_t	nb;
 
-	m = 0;
-	if (nbr == -2147483648)
-		return (ft_strdup("-2147483648"));
-	len_int = ft_len_int(nbr);
-	if (nbr < 0)
-		m = 1;
-	str = ft_strnew(len_int + m);
+	nb = ((uintmax_t)nbr);
+//	ft_putnbr(nb);
+	ft_putchar('\n');
+	len_int = ft_len_int(nb);
+	str = ft_strnew(len_int);
 	if (str == NULL)
 		return (NULL);
-	nbr = ABS(nbr);
 	str[len_int + 1] = '\0';
-	if (m == 0)
-		len_int--;
-	str = ft_while_itoa(len_int, str, nbr);
-	if (m == 1)
-		str[0] = '-';
+	str = ft_while_itoa(len_int, str, nb);
+	ft_putendl(str);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:47:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 21:22:53 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 17:15:03 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,20 @@
 **	This function take in parameter the content of the link.
 */
 
+
+char	*ft_intj(char c)
+{
+	char *str;
+
+	str = ft_strnew(2);
+	str[0] = c;
+	return (str);
+}
+
 char 	*ft_grepspec(char *str)
 {
 	int		i;
 	int		j;
-	char	*clone;
 	int		check;
 
 	check = 0;
@@ -40,7 +49,7 @@ char 	*ft_grepspec(char *str)
 		while (!ft_islength(str, i) && i > 0)
 			i--;
 		if (i == 0)
-			return (ft_strcpy(ft_strnew(2), (const char*)j));
+			return (ft_strsub(str, 1, (j - i + 1)));
 		while (ft_islength(str, i))
 			i--;
 		i++;
