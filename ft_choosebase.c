@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 17:08:33 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 18:11:30 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,36 @@ char	*ft_itoabase(char *base, uintmax_t nb)
 	return (res);
 }
 
+char	*ft_itoabasesi(char *base, short int nb)
+{	
+	int b;
+	char *res;
+	char *tmp;
+
+	res = ft_strnew(2);
+	b = ft_strlen(base);
+	*res = base[nb % b];
+	tmp = res;
+	nb = nb / b;
+	if (nb != 0)
+	{
+		res = ft_strjoin(ft_itoabase(base, nb), res);
+		free (tmp);
+	}
+	return (res);
+}
+
 char	*ft_choosebase(char *str, uintmax_t nb)
 {
 	int i;
+	int	j;
+	char *flag;
 
 	i = 0;
+	j = 0;
+	flag = ft_strnew(3);
 	while (!ft_isspec(str[i]))
-		i++;
+		flag[j++] = str[i++];
 	if (str[i] == 'o')
 		return (ft_itoabase("01234567", nb));
 	else if (str[i] == 'x' || str[i] == 'p')
@@ -49,7 +72,12 @@ char	*ft_choosebase(char *str, uintmax_t nb)
 	else if (str[i] == 'X')
 		return (ft_itoabase("0123456789ABCDEF", nb));
 	else if (str[i] == 'u' || str[i] == 'd')
-		return (ft_itoabase("0123456789", nb));
+	{
+		if (ft_strequ(flag, "hh"))
+			return (ft_itoabasesi("0123456789", nb));
+		else	
+			return (ft_itoabase("0123456789", nb));
+	}
 	else if (str[i] == 'b')
 		return (ft_itoabase("01234567", nb));
 	return (NULL);

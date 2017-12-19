@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 19:23:52 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 20:29:49 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 18:54:33 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char		*ft_applyflag(t_case *block, char *s)
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), '0'), s);
 
 	}
+	if (block->flag.sharp)
+		s = ft_strjoin("0", s);
 	if ((block->flag.plus || sign) && !ft_ischar(block->flag.spec))
 	{
 		if (sign)

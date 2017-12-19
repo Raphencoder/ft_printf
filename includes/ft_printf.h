@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 17:09:54 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 17:23:49 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef	struct	s_flag
 {
-	intmax_t		spec;
+	int		spec;
 	int		plus;
 	int		less;
 	int		space;

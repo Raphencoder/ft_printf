@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:47:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 17:15:03 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 18:47:44 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,6 @@
 **	the function ft_findspec.
 **	This function take in parameter the content of the link.
 */
-
-
-char	*ft_intj(char c)
-{
-	char *str;
-
-	str = ft_strnew(2);
-	str[0] = c;
-	return (str);
-}
 
 char 	*ft_grepspec(char *str)
 {
