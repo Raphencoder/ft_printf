@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 20:11:29 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 20:17:59 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/20 00:11:17 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strminimalize(char *str)
 		return (NULL);
 	while (str[i])
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
+		if ((str[i] >= 'A' && str[i] <= 'Z') && str[i] != 'X')
 			str[i] = str[i] + 32;
 		i++;
 	}

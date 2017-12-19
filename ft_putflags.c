@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 11:30:46 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 18:39:29 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/20 00:57:06 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,16 @@ void	ft_putflags(t_case *block)
 		else if ((block->content)[i] == '0')
 			block->flag.zero = 1;	
 		else if ((block->content)[i] == ' ')
+		{
+			block->content = ft_deletechar(block->content, ' ');
 			block->flag.space = 1;
+		}
 		else if (ft_isdigit((block->content)[i]) == 1)
 		{
-			block->flag.width = ft_atoi(block->content + i);
+			ft_putchar('\n');
+			ft_putnbr(i);
+			ft_putchar('\n');
+			block->flag.width = ft_atoi(block->content + i - 1);
 			while(ft_isdigit((block->content)[i]))
 				i++;
 			i--;

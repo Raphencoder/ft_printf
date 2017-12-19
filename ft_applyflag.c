@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 19:23:52 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 20:56:22 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/20 00:52:06 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char		*ft_applyflag(t_case *block, char *s)
 	int 	sign;
 	char	*tmp;
 
+	ft_putendl(s);
+	ft_putnbr(block->flag.spec);
 	sign = 0;
 	if (s != NULL && s[0] == '-')
 	{
@@ -36,9 +38,10 @@ char		*ft_applyflag(t_case *block, char *s)
 			return (s);
 		if (block->flag.spec == 's')
 			block->flag.spec = 's';
-		else
+		else if (!block->flag.width)
 			s = ft_strjoin(" ", s);
 	}
+	ft_putendl(s);
 	if (block->flag.zero && !block->flag.less && !ft_ischar(block->flag.spec))
 	{
 		if (block->flag.plus || sign)
@@ -47,13 +50,17 @@ char		*ft_applyflag(t_case *block, char *s)
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), '0'), s);
 
 	}
+	ft_putendl(s);
 	if (block->flag.sharp && (block->flag.spec == 'o') && *block->content != '0')
 		s = ft_strjoin("0", s);
 	else if  (block->flag.sharp && (block->flag.spec == 'x') && *block->content != '0')
 		s = ft_strjoin("0x", s);
 	else if  (block->flag.sharp && (block->flag.spec == 'X' && *block->content != '0'))
 		s = ft_strjoin("0X", s);
-
+//	ft_putendl(s);
+	//ft_putnbr(block->flag.width);
+//	ft_putchar('\n');
+//	ft_putnbr(ft_strlen(s));
 	if (((block->flag.plus || sign) && !ft_ischar(block->flag.spec)) && !block->flag.sharp)
 	{
 		if (sign)
@@ -63,5 +70,6 @@ char		*ft_applyflag(t_case *block, char *s)
 	}
 	else if (block->flag.width)
 		s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), ' '), s);
+//	ft_putendl(s);
 	return (s);
 }

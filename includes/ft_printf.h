@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 20:48:50 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/20 00:28:48 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int     	ft_isflag(char c);
 int     	ft_ischar(char c);
 int     	ft_issigned(char *str);
 int     	ft_islength(char c);
+char			*ft_deletechar(char *str, char c);
 char		*ft_applyflag(t_case *block, char *str);
 int     	ft_printf(char const * restrict format, ...);
 char        *ft_itoast(size_t nbr);
