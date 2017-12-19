@@ -6,7 +6,7 @@
 /*   By: Raphael <raphaelkriefbm@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 12:49:10 by Raphael           #+#    #+#             */
-/*   Updated: 2017/12/19 14:20:04 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 20:18:12 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int					ft_atoi(const char *str);
 int					ft_intisdigit(int c);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
+char    			*ft_strminimalize(char *str);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_itoa(int n);
 char				*ft_strmap(char const *s, char (*f)(char));

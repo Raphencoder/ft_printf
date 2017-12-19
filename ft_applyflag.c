@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 19:23:52 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 18:54:33 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 20:56:22 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char		*ft_applyflag(t_case *block, char *s)
 	char	*tmp;
 
 	sign = 0;
-	if (s[0] == '-')
+	if (s != NULL && s[0] == '-')
 	{
 		tmp = s;
 		s = ft_strdup(s + 1);
@@ -47,9 +47,14 @@ char		*ft_applyflag(t_case *block, char *s)
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), '0'), s);
 
 	}
-	if (block->flag.sharp)
+	if (block->flag.sharp && (block->flag.spec == 'o') && *block->content != '0')
 		s = ft_strjoin("0", s);
-	if ((block->flag.plus || sign) && !ft_ischar(block->flag.spec))
+	else if  (block->flag.sharp && (block->flag.spec == 'x') && *block->content != '0')
+		s = ft_strjoin("0x", s);
+	else if  (block->flag.sharp && (block->flag.spec == 'X' && *block->content != '0'))
+		s = ft_strjoin("0X", s);
+
+	if (((block->flag.plus || sign) && !ft_ischar(block->flag.spec)) && !block->flag.sharp)
 	{
 		if (sign)
 			s = ft_strjoin("-", s);

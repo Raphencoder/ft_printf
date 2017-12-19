@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/19 16:58:48 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/19 20:18:46 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,6 +115,7 @@ L_SRC =		./libft/ft_putchar.c \
 			./libft/ft_lstdel.c \
 			./libft/ft_lstadd.c \
 			./libft/ft_lstiter.c \
+			./libft/ft_strminimalize.c \
 			./libft/ft_lstmap.c \
 			./libft/ft_strndup.c
 
@@ -144,6 +145,7 @@ L_OBJ =		ft_putchar.o \
 			ft_strcmp.o \
 			ft_strncmp.o \
 			ft_isalpha.o \
+			ft_strminimalize.o \
 			ft_isdigit.o \
 			ft_isalnum.o \
 			ft_isascii.o \

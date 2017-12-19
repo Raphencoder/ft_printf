@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 19:00:36 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 20:22:46 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ char	*ft_findspec(t_case *block, va_list arglst)
 	char	*s;
 
 	ft_putflags(block);
-	ft_putstr("SS");
+	block->content = ft_strminimalize(block->content);
 	s = ft_grepspec(block->content);
-	ft_putstr("OO");
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
-	ft_putstr("LL");
 	if (s == NULL)
 		return (block->content);
 	else if ((ft_strequ(s, "o") || ft_strequ(s, "d") || ft_strequ(s, "i") || 
@@ -51,9 +49,10 @@ ft_strequ(s, "b") || ft_strequ(s, "hb") || ft_strequ(s, "hhb") ||
 ft_strequ(s, "lb") || ft_strequ(s, "llb") || ft_strequ(s, "jb") || 
 ft_strequ(s, "tb") || ft_strequ(s, "zb") || ft_strequ(s, "p")))
 			return (ft_choosebase(s, va_arg(arglst, uintmax_t)));
-	else if ((ft_strequ(s, "c")))
+	else if (ft_strequ(s, "c") || (ft_strequ(s, "lc")))
 			return (ft_intc(va_arg(arglst, int), block));
-	else if (ft_strequ(s, "s"))
+	else if (ft_strequ(s, "s") || ft_strequ(s, "ls"))
 			return (va_arg(arglst, char*));
+	ft_putstr(s);
 	return (0);
 }

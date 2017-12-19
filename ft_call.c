@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 18:40:24 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 19:01:24 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 19:21:23 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@ void	ft_call(t_case *block, va_list arglst)
 	if (block->next != NULL)
 		ft_call(block->next, arglst);
 	block->content = ft_findspec(block, arglst);
-	ft_putstr("KK");
 	if (block->flag.spec == -1)
 		return ;
-	ft_putstr("RR");
 	if (ft_strequ(block->content, ""))
 		block->content = ft_strdup(s);
-	ft_putstr("TT");
 	else if (block->flag.spec)
 		block->content = ft_applyflag(block, block->content);
 	return ;

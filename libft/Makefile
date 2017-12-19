@@ -6,7 +6,7 @@
 #    By: Raphael <raphaelkriefbm@gmail.oom>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/26 13:55:42 by Raphael           #+#    #+#              #
-#    Updated: 2017/11/14 12:24:07 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/19 20:18:27 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME =		libft.a
@@ -16,6 +16,7 @@ SRC =		ft_putchar.c \
 			ft_memset.c \
 			ft_bzero.c \
 			ft_memcpy.c \
+			ft_strminimalize.c \
 			ft_memccpy.c \
 			ft_memmove.c \
 			ft_memchr.c \
@@ -72,6 +73,7 @@ SRC =		ft_putchar.c \
 
 OBJ =		ft_putchar.o \
 			ft_putstr.o \
+			ft_strminimalize.o \
 			ft_memset.o \
 			ft_bzero.o \
 			ft_memcpy.o \

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islength.c                                      :+:      :+:    :+:   */
+/*   ft_strminimalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 16:17:51 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 20:48:27 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/19 20:11:29 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/19 20:17:59 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-/*
-**	This function check if the specific character at the 'i' position is a
-**	'length' type.
-*/
-
-int		ft_islength(char c)
+char	*ft_strminimalize(char *str)
 {
-	if (c == 'h' || c == 'l' || c == 'j' || c == 'z' 
-			|| c == 't' || c == 'L')
-		return (1);
-	return (0);
+	int i;
+
+	i = 0;
+	if (str == NULL)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] = str[i] + 32;
+		i++;
+	}
+	return (str);
 }
