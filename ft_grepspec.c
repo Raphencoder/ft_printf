@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:47:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 19:35:34 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/19 20:53:45 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,32 @@ char 	*ft_grepspec(char *str)
 	int		i;
 	int		j;
 	int		check;
+	int		flag;
 
+	flag = 0;
 	check = 0;
 	i = 0;
 	j = 0;
 	if (str[0] != '%')
 		return (NULL);
 	i++;
-	while ((!ft_isspec(str[i]) && str[i]))
-		i++;
-	if (ft_isspec(str[i]))
+	while (!ft_islength(str[i]) && str[i])
 	{
-		j = i;
-		while (!ft_islength(str, i) && i > 0)
-			i--;
-		if (i == 0)
-			return (ft_strsub(str, 2, (j - i + 1)));
-		while (ft_islength(str, i))
-			i--;
 		i++;
-		return (ft_strsub(str, i, (j - i + 1)));
+		flag = 1;
 	}
-	return (NULL);
+	if (!str[i])
+		return (ft_strsub(str, i - 1, 1));
+//	ft_putnbr(i);
+//	ft_putchar(str[i]);
+//	if (flag)
+//		i--;
+	j = i;
+	while ((ft_islength(str[i]) || ft_isspec(str[i])) && str[i])
+	{
+		i++;
+		check++;
+	}
+	return (ft_strsub(str, j, check));
+
 }
