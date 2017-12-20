@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 21:22:29 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 00:57:23 by Raphael          ###   ########.fr       */
+/*   Updated: 2017/12/20 22:12:14 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int main()
 {
-//	uintmax_t i;
+	uintmax_t i;
 
-//	i = 60012211121121;
-	   printf("o-/%32#lX\n", 56980000000000);
-	ft_printf("m-/%32#lX\n", 56980000000000);
+	i = 6001;
+	   printf("hello%s\n%%%ju\n", "salut", i);
+	ft_printf("hello%s\n%%%ju\n", "salut", i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 14:09:39 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/18 16:55:25 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/20 20:06:17 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 **	is the beginning of the linked list
 */
 
-void	ft_newblck(char *str, int i, t_case **start)
+void	ft_newblck(char *str, int head, int len, t_case **start)
 {
 	t_case	*block;
 
 	if ((block = (t_case*)ft_memalloc(sizeof(t_case))) == NULL)
 		return ;
-	block->content = ft_strndup(str, i);
+	block->content = ft_strsub(str, head, len);
+	ft_putendl(block->content);
 	block->next = *start;
 	*start = block;
 }

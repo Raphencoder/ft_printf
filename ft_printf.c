@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 18:58:05 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/20 15:36:00 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		ft_printf(char const * restrict format, ...)
 	block = *start;
 	ft_call(block, arglst);
 	ft_printlst(*start);
-	ft_putchar('\n');
 	va_end(arglst);
 	return (0);
 }

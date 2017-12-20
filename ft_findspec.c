@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 00:36:04 by Raphael          ###   ########.fr       */
+/*   Updated: 2017/12/20 16:22:06 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_findspec(t_case *block, va_list arglst)
 		block->flag.spec = ft_takespec(s);
 	if (s == NULL)
 		return (block->content);
+	if (ft_strequ(s, "%"))
+		return ("%");
 	else if ((ft_strequ(s, "o") || ft_strequ(s, "d") || ft_strequ(s, "i") || 
 ft_strequ(s, "hhd") || ft_strequ(s, "hhi") || ft_strequ(s, "hd") || 
 ft_strequ(s, "hi") || (ft_strequ(s, "ld") || ft_strequ(s, "li")) || 
