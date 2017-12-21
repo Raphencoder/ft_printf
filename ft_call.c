@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_call.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/14 21:22:29 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 10:51:14 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/18 18:40:24 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/21 12:02:37 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main()
+void	ft_call(t_case *block, va_list arglst)
 {
-	uintmax_t i;
-
-	i = 6001;
-	   printf("%# s\n", "salut");
-	ft_printf("%# s", "hello");
-	return (0);
+	if (block->next != NULL)
+		ft_call(block->next, arglst);
+	block->content = ft_findspec(block, arglst);
+	if (block->flag.spec == -1)
+		return ;
+	if (ft_strequ(block->content, "") && block->flag.spec)
+		block->content = ft_strdup("(null)");
+	else if (block->flag.spec)
+		block->content = ft_applyflag(block, block->content);
+	return ;
 }

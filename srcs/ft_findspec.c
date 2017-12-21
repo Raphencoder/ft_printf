@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 11:22:21 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 15:32:06 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_findspec(t_case *block, va_list arglst)
 	char	*s;
 
 	ft_putflags(block);
-	block->content = ft_strminimalize(block->content);
 	s = ft_grepspec(block->content);
+//	s = ft_strminimalize(block->content);
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
 	if (s == NULL)

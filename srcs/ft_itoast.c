@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:20:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 16:03:52 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 15:10:04 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int      ft_len_int(uintmax_t n)
 
 static char     *ft_while_itoa(uintmax_t len_int, char *str, uintmax_t nbr)
 {
-	while (len_int >= 0)
+	while (len_int > 0)
 	{
 		str[len_int] = '0' + (nbr % 10);
 		len_int--;

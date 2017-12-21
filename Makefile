@@ -6,11 +6,11 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/21 11:23:29 by rkrief           ###   ########.fr        #
+#    Updated: 2017/12/21 11:42:21 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 		ft_printf.a
+NAME = 		libftprintf.a
 
 HEADER =	includes
 
@@ -184,22 +184,25 @@ L_OBJ =		ft_putchar.o \
 			ft_lstmap.o \
 			ft_strndup.o
 
-FLAG =		 -Wall -Werror -Wextra -g
+FLAG =		 -Wall -Werror -Wextra
 
 all :		$(NAME)
 
 $(NAME) :	
-			@gcc -c -I$(HEADER) $(FLAG) $(P_SRC) $(L_SRC)
-			@ar rc $(NAME) $(L_OBJ) $(P_OBJ)
+	make -C libft/
+	@gcc -c -I$(HEADER) $(FLAG) $(P_SRC) $(L_SRC)
+	@ar rc $(NAME) $(L_OBJ) $(P_OBJ)
 
 clean :
-			@rm -rf $(L_OBJ) $(P_OBJ)
+	make -C libft/ clean
+	@rm -rf $(L_OBJ) $(P_OBJ)
 
 run :		re
 	@make clean
 
 fclean :	clean
-			@rm -rf $(NAME)
+	make -C libft/ fclean
+	@rm -rf $(NAME)
 
 re :		fclean all
 

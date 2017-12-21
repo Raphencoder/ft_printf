@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 20:02:52 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 12:05:40 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef	struct	s_case
 }					t_case;
 
 void		ft_newblck(char *str, int i, int len, t_case **start);
-void		ft_printlst(t_case *start);
+int			ft_printlst(t_case *start);
 void		ft_mvinlst(t_case *block);
 void		ft_putflags(t_case *block);
 void    	ft_call(t_case *block, va_list arglst);

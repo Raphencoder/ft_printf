@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 15:36:00 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 12:24:50 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ int		ft_printf(char const * restrict format, ...)
 	va_list arglst;
 	t_case	**start;
 	t_case	*block;
+	int		size;
 
 	va_start(arglst, format);
+	if (ft_strequ(format, ""))
+		return (0);
 	start = ft_fillstr((char*)format);
 	block = *start;
 	ft_call(block, arglst);
-	ft_printlst(*start);
+	size = ft_printlst(*start);
 	va_end(arglst);
-	return (0);
+	return (size);
 }
