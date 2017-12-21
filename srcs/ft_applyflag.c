@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 19:23:52 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 11:21:47 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 18:03:25 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ char		*ft_applyflag(t_case *block, char *s)
 	{
 		if (block->flag.plus || sign)
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s) - 1, '0'), s);
+		if (block->flag.sharp && *block->content != '0')
+		s = ft_strjoin(ft_scs(block->flag.width - (ft_strlen(s) + 2), '0'), s);
+
 		else
 			s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), '0'), s);
 
@@ -67,5 +70,15 @@ char		*ft_applyflag(t_case *block, char *s)
 	}
 	else if(block->flag.width && (block->flag.width > ((int)ft_strlen(s))))
 		s = ft_strjoin(ft_scs(block->flag.width - ft_strlen(s), ' '), s);
+	if ((block->flag.dot || block->flag.dot == -1) && (block->flag.spec == 115 || block->flag.spec == 120 || block->flag.spec == 88))
+	{
+		if (block->flag.dot == -1)
+		{
+			s = ft_strndup(s, 0);
+			return (s);
+		}
+		if ((int)ft_strlen(s) > block->flag.dot)
+			s = ft_strndup(s, block->flag.dot);
+	}
 	return (s);
 }

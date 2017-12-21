@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 11:22:00 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 18:29:36 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,15 @@ char	*ft_itoabase(char *base, uintmax_t nb)
 	int b;
 	char *res;
 	char *tmp;
+	int	sign;
 
+	sign = 0;
+	ft_putnbr((int)nb);
+	if ((int)nb < 0)
+{
+		sign = -1;
+		nb = -nb;
+	}	
 	res = ft_strnew(2);
 	b = ft_strlen(base);
 	*res = base[nb % b];
@@ -28,6 +36,8 @@ char	*ft_itoabase(char *base, uintmax_t nb)
 		res = ft_strjoin(ft_itoabase(base, nb), res);
 		free (tmp);
 	}
+	if (sign == -1)
+		res = ft_strjoin("-", res);
 	return (res);
 }
 
@@ -55,7 +65,7 @@ char	*ft_choosebase(char *str, uintmax_t nb)
 	int i;
 	int	j;
 	char *flag;
-
+	
 	i = 0;
 	j = 0;
 	flag = ft_strnew(3);

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 11:30:46 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 15:34:17 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 17:58:54 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_putflags(t_case *block)
 		{
 			i++;
 			block->flag.dot = ft_atoi(block->content + i);
+			if (block->flag.dot == 0)
+				block->flag.dot = -1;
 			while(ft_isdigit((block->content)[i]))
 				i++;
 			i--;
