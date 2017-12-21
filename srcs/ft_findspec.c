@@ -6,11 +6,11 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 16:22:06 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 11:22:21 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /*
 **	This function will identify wich function to call depending on the

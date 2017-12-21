@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 14:09:39 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 22:13:01 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 10:40:16 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_newblck(char *str, int head, int len, t_case **start)
 	if ((block = (t_case*)ft_memalloc(sizeof(t_case))) == NULL)
 		return ;
 	block->content = ft_strsub(str, head, len);
-	ft_putendl(block->content);
 	block->next = *start;
 	*start = block;
 }

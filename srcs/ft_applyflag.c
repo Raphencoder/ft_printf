@@ -6,11 +6,11 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 19:23:52 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 16:20:41 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 11:21:47 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 char		*ft_applyflag(t_case *block, char *s)
 {

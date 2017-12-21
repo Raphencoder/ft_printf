@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/20 00:29:29 by Raphael          ###   ########.fr        #
+#    Updated: 2017/12/21 11:23:29 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,27 +14,27 @@ NAME = 		ft_printf.a
 
 HEADER =	includes
 
-P_SRC = 	ft_newblck.c \
-			ft_printlst.c \
-			ft_fillstr.c \
-			ft_takespec.c \
-			ft_deletechar.c \
-			ft_findspec.c \
-			ft_isspec.c \
-			ft_mvinlst.c \
-			ft_putflags.c \
-			ft_isflag.c \
-			ft_issigned.c \
-			ft_islength.c \
-			ft_ischar.c \
-			ft_applyflag.c \
-			ft_printf.c \
-			ft_findspec.c \
-			ft_choosebase.c \
-			ft_grepspec.c \
-			ft_intc.c \
-			ft_scs.c \
-			ft_call.c
+P_SRC = 	./srcs/ft_newblck.c \
+			./srcs/ft_printlst.c \
+			./srcs/ft_fillstr.c \
+			./srcs/ft_takespec.c \
+			./srcs/ft_deletechar.c \
+			./srcs/ft_findspec.c \
+			./srcs/ft_isspec.c \
+			./srcs/ft_mvinlst.c \
+			./srcs/ft_putflags.c \
+			./srcs/ft_isflag.c \
+			./srcs/ft_issigned.c \
+			./srcs/ft_islength.c \
+			./srcs/ft_ischar.c \
+			./srcs/ft_applyflag.c \
+			./srcs/ft_printf.c \
+			./srcs/ft_findspec.c \
+			./srcs/ft_choosebase.c \
+			./srcs/ft_grepspec.c \
+			./srcs/ft_intc.c \
+			./srcs/ft_scs.c \
+			./srcs/ft_call.c
 			
 
 P_OBJ =		ft_newblck.o \

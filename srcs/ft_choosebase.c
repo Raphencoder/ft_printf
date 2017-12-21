@@ -6,11 +6,11 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 18:11:30 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/21 11:22:00 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 char	*ft_itoabase(char *base, uintmax_t nb)
 {	
