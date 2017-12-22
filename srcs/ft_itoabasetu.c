@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoabase.c                                      :+:      :+:    :+:   */
+/*   ft_itoabasetu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 18:37:54 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 18:42:46 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/22 11:43:21 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char    *ft_itoabasetu(char *base, long long nb)
+char    *ft_itoabasetu(char *base, uintmax_t nb)
 {
 	int b;
 	char *res;
 	char *tmp;
 	int	sign;
+	int nbr;
 
-	sign = 0;
-	if (nb < 0)
+	nbr = (int)nb;
+	if (((int)nb) < 0)
 	{
 		sign = -1;
 		nb = -nb;
@@ -32,7 +33,7 @@ char    *ft_itoabasetu(char *base, long long nb)
 	nb = nb / b;
 	if (nb != 0)
 	{
-		res = ft_strjoin(ft_itoabase(base, nb), res);
+		res = ft_strjoin(ft_itoabasetu(base, nb), res);
 		free (tmp);
 	}
 	if (sign == -1)

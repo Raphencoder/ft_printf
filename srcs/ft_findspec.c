@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 15:32:06 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/22 11:39:08 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ char	*ft_findspec(t_case *block, va_list arglst)
 		return (block->content);
 	if (ft_strequ(s, "%"))
 		return ("%");
+	else if (ft_strequ(s, "d") || ft_strequ(s, "hhd") || ft_strequ(s, "i") || 
+ft_strequ(s, "hhi") || ft_strequ(s, "hd") || ft_strequ(s, "hi") || ft_strequ(s, "ld") || ft_strequ(s, "li") || ft_strequ(s, "lld") || ft_strequ(s, "lli"))
+		return (ft_itoabasetu("0123456789", va_arg(arglst, long long int)));
 	else if ((ft_strequ(s, "o") || ft_strequ(s, "d") || ft_strequ(s, "i") || 
 ft_strequ(s, "hhd") || ft_strequ(s, "hhi") || ft_strequ(s, "hd") || 
 ft_strequ(s, "hi") || (ft_strequ(s, "ld") || ft_strequ(s, "li")) || 
