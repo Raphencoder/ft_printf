@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/22 11:35:29 by Raphael          ###   ########.fr        #
+#    Updated: 2017/12/21 18:53:45 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ P_SRC = 	./srcs/ft_newblck.c \
 			./srcs/ft_printlst.c \
 			./srcs/ft_fillstr.c \
 			./srcs/ft_takespec.c \
-			./srcs/ft_itoabasetu.c \
 			./srcs/ft_deletechar.c \
 			./srcs/ft_findspec.c \
 			./srcs/ft_isspec.c \
@@ -35,7 +34,8 @@ P_SRC = 	./srcs/ft_newblck.c \
 			./srcs/ft_grepspec.c \
 			./srcs/ft_intc.c \
 			./srcs/ft_scs.c \
-			./srcs/ft_call.c
+			./srcs/ft_call.c \
+			./srcs/ft_itoabasetu.c \
 			
 
 P_OBJ =		ft_newblck.o \
@@ -43,7 +43,6 @@ P_OBJ =		ft_newblck.o \
 			ft_ischar.o \
 			ft_printlst.o \
 			ft_deletechar.o \
-			ft_itoabasetu.o \
 			ft_takespec.o \
 			ft_isspec.o \
 			ft_findspec.o \
@@ -59,7 +58,8 @@ P_OBJ =		ft_newblck.o \
 			ft_grepspec.o \
 			ft_intc.o \
 			ft_scs.o \
-			ft_call.o
+			ft_call.o \
+			ft_itoabasetu.o
 			
 
 L_SRC =		./libft/ft_putchar.c \

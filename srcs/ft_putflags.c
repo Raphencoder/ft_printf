@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 11:30:46 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 17:58:54 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/27 16:17:48 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void	ft_putflags(t_case *block)
 			i--;
 		}
 		else if ((block->content)[i] == '-')
-			block->flag.less = 1;	
+		{	
+///			if ((block->content)[i + 1] >= '0' && (block->content)[i + 1] <= '9')
+				block->flag.less = 1;
+		}
 		else if ((block->content)[i] == '#')
 			block->flag.sharp = 1;	
 		else if ((block->content)[i] == '0')

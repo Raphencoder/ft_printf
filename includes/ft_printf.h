@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/22 11:41:35 by Raphael          ###   ########.fr       */
+/*   Updated: 2017/12/21 18:41:45 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef	struct	s_case
 
 }					t_case;
 
-char		*ft_itoabasetu(char *str, uintmax_t nb);
+char		*ft_itoabasetu(char *str, long long int);
 void		ft_newblck(char *str, int i, int len, t_case **start);
 int			ft_printlst(t_case *start);
 void		ft_mvinlst(t_case *block);

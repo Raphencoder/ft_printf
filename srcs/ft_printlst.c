@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:34:04 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 12:06:11 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/28 00:58:23 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int	ft_printlst(t_case *start)
 		ft_printlst((*start).next);
 	if (((int)(*start).content_size) == ((int)-1))
 	{
+		if (start->flag.width)
+		{
+			ft_putstr(ft_scs(start->flag.width - 1, ' '));
+			size = size + (start->flag.width - 1);
+		}
 		ft_putchar(0);
 		size = size + 1;
 		return (size);

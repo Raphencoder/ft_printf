@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/22 11:39:08 by Raphael          ###   ########.fr       */
+/*   Updated: 2017/12/27 23:53:38 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,22 @@
 char	*ft_findspec(t_case *block, va_list arglst)
 {
 	char	*s;
+	int 	i;
 
+	i = 0;
 	ft_putflags(block);
+	if (!block->flag.spec)
+		return (block->content);
 	s = ft_grepspec(block->content);
-//	s = ft_strminimalize(block->content);
+	while (!ft_isspec(s[i]) && s[i])
+		i++;
+	if (ft_isspec(s[i]) && (s[i] >= 'A' && s[i] <= 'Z'))
+	{
+		if (s[i] == 'X')
+			s[i] = 'X';
+		else
+			s[i] = s[i] + 32;
+	}
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
 	if (s == NULL)
@@ -32,9 +44,7 @@ char	*ft_findspec(t_case *block, va_list arglst)
 	if (ft_strequ(s, "%"))
 		return ("%");
 	else if (ft_strequ(s, "d") || ft_strequ(s, "hhd") || ft_strequ(s, "i") || 
-ft_strequ(s, "hhi") || ft_strequ(s, "hd") || ft_strequ(s, "hi") || ft_strequ(s, "ld") || ft_strequ(s, "li") || ft_strequ(s, "lld") || ft_strequ(s, "lli"))
-		return (ft_itoabasetu("0123456789", va_arg(arglst, long long int)));
-	else if ((ft_strequ(s, "o") || ft_strequ(s, "d") || ft_strequ(s, "i") || 
+ft_strequ(s, "hhi") || ft_strequ(s, "hd") || ft_strequ(s, "hi") || ft_strequ(s, "ld") || ft_strequ(s, "li") || ft_strequ(s, "lld") || ft_strequ(s, "lli") || ft_strequ(s, "o") || ft_strequ(s, "d") || ft_strequ(s, "i") || 
 ft_strequ(s, "hhd") || ft_strequ(s, "hhi") || ft_strequ(s, "hd") || 
 ft_strequ(s, "hi") || (ft_strequ(s, "ld") || ft_strequ(s, "li")) || 
 ft_strequ(s, "lld") || ft_strequ(s, "lli") || ft_strequ(s, "jd") || 
@@ -52,12 +62,17 @@ ft_strequ(s, "hhX") || ft_strequ(s, "lX") || ft_strequ(s, "llX") ||
 ft_strequ(s, "jX") || ft_strequ(s, "tX") || ft_strequ(s, "zX") || 
 ft_strequ(s, "b") || ft_strequ(s, "hb") || ft_strequ(s, "hhb") || 
 ft_strequ(s, "lb") || ft_strequ(s, "llb") || ft_strequ(s, "jb") || 
-ft_strequ(s, "tb") || ft_strequ(s, "zb") || ft_strequ(s, "p")))
+ft_strequ(s, "tb") || ft_strequ(s, "zb") || ft_strequ(s, "p"))
 			return (ft_choosebase(s, va_arg(arglst, uintmax_t)));
 	else if (ft_strequ(s, "c") || (ft_strequ(s, "lc")))
 			return (ft_intc(va_arg(arglst, int), block));
 	else if (ft_strequ(s, "s") || ft_strequ(s, "ls"))
-			return (va_arg(arglst, char*));
-	ft_putstr(s);
+	{
+		s = va_arg(arglst, char*);
+		if (s == NULL)
+			return ("(null)");
+		else
+			return (s);
+	}
 	return (0);
 }
