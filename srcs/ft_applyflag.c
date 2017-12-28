@@ -6,15 +6,17 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/28 01:16:27 by rkrief           ###   ########.fr       */
+/*   Updated: 2017/12/28 02:11:50 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+
+
+
 char		*ft_applyflag(t_case *block, char *s)
 {
-
 	int sign;
 	int hey;
 	int i;
@@ -26,16 +28,12 @@ char		*ft_applyflag(t_case *block, char *s)
 		block->flag.width -= 2;
 	if (!block->flag.less && (block->flag.spec == 'd' || block->flag.spec == 'i'))
 	{
-		i = 0;
-		while (s[i] != '-' && s[i])
-			i++;
-		if (!s[i])
-			sign = 0;
-		else
+		if (ft_strchr(s, '-'))
 			sign = 1;
 	}
 	if (block->flag.dot == -1 && !ft_strcmp(s, "0") && !block->flag.sharp)
 		s = ft_strdup("");
+
 	else if (block->flag.dot == -1 && ft_strequ(s, "0"))
 	{
 		if (block->flag.sharp && block->flag.spec != 'o')
@@ -73,7 +71,6 @@ char		*ft_applyflag(t_case *block, char *s)
 				s = ft_strjoin(ft_scs((block->flag.dot - ((int)ft_strlen(s) - 1)), '0'), s);
 			else if (block->flag.dot > (int)ft_strlen(s))
 				s = ft_strjoin(ft_scs((block->flag.dot - (int)ft_strlen(s)), '0'), s);
-
 		}
 		if (block->flag.zero && block->flag.width)
 		{
