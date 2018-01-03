@@ -26,7 +26,6 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-
 void				ft_putchar(char c);
 void				ft_strclr(char *s);
 void				ft_strdel(char **as);
@@ -84,7 +83,7 @@ char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
-char        		*ft_strndup(const char *s1, size_t n);
+char				*ft_strndup(const char *s1, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strdup(const char *s1);
 char				**ft_strsplit(char const *s, char c);

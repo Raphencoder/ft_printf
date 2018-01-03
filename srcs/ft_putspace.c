@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_allitoa.c                                       :+:      :+:    :+:   */
+/*   ft_applyflag.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/02 15:10:46 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 15:10:53 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/28 02:11:50 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char    *ft_itoald(long int nb)
+char		*ft_putspace(t_case *block, char *s)
 {
-	long int clone;
-	int i;
-	char *res;
-	int sign;
+	int		i;
+	char	*tmp;
 
-	sign = 0;
 	i = 0;
-	if (nb < 0)
+	if (block->flag.dot)
+		s = ft_strjoin("-", s);
+	else
 	{
-		i = 1;
-		sign = 1;
-		nb = -nb;
+		while (s[i] <= 32 && s[i])
+			i++;
+		tmp = s;
+		s = ft_strjoin("-", s + i);
+		tmp = ft_strndup(tmp, i);
+		s = ft_strjoin(tmp, s);
 	}
-	clone = nb;
-	while (nb >= 10)
-	{
-		nb = nb / 10;
-		i++;
-	}
-	res = (char*)ft_memalloc(sizeof(char) * i + 2);
-	while (clone >= 10)
-	{
-		res[i] = (clone % 10) + 48;
-		clone = clone / 10;
-		i--;
-	}
-	res[i] = clone + 48;
-	if (sign)
-		res[0] = '-';
-	return (res);
+	return (s);
 }

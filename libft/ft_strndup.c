@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char        *ft_strndup(const char *s1, size_t n)
+char		*ft_strndup(const char *s1, size_t n)
 {
-	char    *clone;
-	int     j;
+	char	*clone;
+	int		j;
 
 	if (((clone = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1)) == 0))
 		return (NULL);

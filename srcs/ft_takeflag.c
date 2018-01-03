@@ -1,47 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_allitoa.c                                       :+:      :+:    :+:   */
+/*   ft_choosebase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/02 15:10:46 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 15:10:53 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/28 01:04:39 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-char    *ft_itoahd(short int nb)
+char	*ft_takeflag(char *str)
 {
-	short int clone;
-	int i;
-	char *res;
-	int sign;
+	int		i;
+	char	*res;
 
-	sign = 0;
 	i = 0;
-	if (nb < 0)
-	{
-		i = 1;
-		sign = 1;
-		nb = -nb;
-	}
-	clone = nb;
-	while (nb >= 10)
-	{
-		nb = nb / 10;
+	while (!ft_isspec(str[i]))
 		i++;
-	}
-	res = (char*)ft_memalloc(sizeof(char) * i + 2);
-	while (clone >= 10)
-	{
-		res[i] = (clone % 10) + 48;
-		clone = clone / 10;
-		i--;
-	}
-	res[i] = clone + 48;
-	if (sign)
-		res[0] = '-';
+	if (i == 0)
+		return (NULL);
+	res = ft_strndup(str, i);
 	return (res);
 }

@@ -24,7 +24,8 @@ void	ft_call(t_case *block, va_list arglst)
 	block->content = ft_findspec(block, arglst);
 	if (block->flag.spec == -1)
 		return ;
-	if (((ft_strequ(block->content, "") || block->content == NULL) && block->flag.spec) && block->next == NULL && count)
+	if (((ft_strequ(block->content, "") || block->content == NULL) &&
+block->flag.spec) && block->next == NULL && count)
 		block->content = ft_strdup("(null)");
 	else if (block->flag.spec)
 		block->content = ft_applyflag(block, block->content);

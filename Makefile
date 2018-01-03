@@ -15,22 +15,22 @@ NAME = 		libftprintf.a
 HEADER =	includes
 
 P_SRC = 	./srcs/ft_newblck.c \
-			./srcs/ft_itoalld.c \
-			./srcs/ft_itoahd.c \
-			./srcs/ft_itoajd.c \
-			./srcs/ft_itoazd.c \
-			./srcs/ft_itoald.c \
 			./srcs/ft_printlst.c \
 			./srcs/ft_fillstr.c \
 			./srcs/ft_takespec.c \
 			./srcs/ft_deletechar.c \
 			./srcs/ft_findspec.c \
+			./srcs/ft_putspacetwo.c \
 			./srcs/ft_isspec.c \
+			./srcs/ft_itoac.c \
+			./srcs/ft_takeflag.c \
 			./srcs/ft_mvinlst.c \
 			./srcs/ft_putflags.c \
+			./srcs/ifdot.c \
 			./srcs/ft_isflag.c \
 			./srcs/ft_issigned.c \
 			./srcs/ft_islength.c \
+			./srcs/ft_putspace.c \
 			./srcs/ft_ischar.c \
 			./srcs/ft_applyflag.c \
 			./srcs/ft_printf.c \
@@ -43,14 +43,13 @@ P_SRC = 	./srcs/ft_newblck.c \
 
 P_OBJ =		ft_newblck.o \
 			ft_fillstr.o \
-			ft_itoalld.o \
-			ft_itoahd.o \
-			ft_itoajd.o \
-			ft_itoazd.o \
-			ft_itoald.o \
 			ft_ischar.o \
+			ft_putspacetwo.o \
 			ft_printlst.o \
+			ft_putspace.o \
+			ft_itoac.o \
 			ft_deletechar.o \
+			ft_takeflag.o \
 			ft_takespec.o \
 			ft_isspec.o \
 			ft_findspec.o \
@@ -64,6 +63,7 @@ P_OBJ =		ft_newblck.o \
 			ft_findspec.o \
 			ft_choosebase.o \
 			ft_grepspec.o \
+			ifdot.o \
 			ft_intc.o \
 			ft_scs.o \
 			ft_call.o \

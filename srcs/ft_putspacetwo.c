@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_allitoa.c                                       :+:      :+:    :+:   */
+/*   ft_choosebase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/02 15:10:46 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 15:10:53 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/28 01:04:39 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-char    *ft_itoazd(size_t nb)
+char	*ft_putspacetwo(t_case *block, char *s)
 {
-	size_t clone;
-	int i;
-	char *res;
+	int		i;
+	char	*tmp;
 
 	i = 0;
-	clone = nb;
-	while (nb >= 10)
+	if (block->flag.width)
 	{
-		nb = nb / 10;
-		i++;
+		while (s[i] <= 32 && s[i])
+			i++;
+		tmp = s;
+		s = ft_strjoin("+", s + i);
+		tmp = ft_strndup(tmp, i);
+		s = ft_strjoin(tmp, s);
 	}
-	res = (char*)ft_memalloc(sizeof(char) * i + 2);
-	while (clone >= 10)
-	{
-		res[i] = (clone % 10) + 48;
-		clone = clone / 10;
-		i--;
-	}
-	res[i] = clone + 48;
-	return (res);
+	else
+		s = ft_strjoin("+", s);
+	return (s);
 }
