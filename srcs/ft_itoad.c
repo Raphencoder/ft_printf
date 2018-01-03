@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scs.c                                           :+:      :+:    :+:   */
+/*   ft_choosebase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/14 20:12:54 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 13:19:10 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
+/*   Updated: 2017/12/28 01:04:39 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_scs(int nb, char c)
+char    *ft_itoad(int nb)
 {
 	char	*str;
-	int		i;
+	int		len_int;
+	int		m;
 
-	i = 0;
-	if (nb <= 0)
-		return ("");
-	str = (char*)ft_memalloc(sizeof(char) * nb + 1);
-	while (i < nb)
-	{
-		str[i] = c;
-		i++;
-	}
-	str[i] = '\0';
+	m = 0;
+	if (nbr == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len_int = ft_len_int(nbr);
+	if (nbr < 0)
+		m = 1;
+	str = ft_strnew(len_int + m);
+	if (str == NULL)
+		return (NULL);
+	nbr = ABS(nbr);
+	str[len_int + 1] = '\0';
+	if (m == 0)
+		len_int--;
+	str = ft_while_itoa(str, len_int, nbr);
+	if (m == 1)
+		str[0] = '-';
 	return (str);
 }

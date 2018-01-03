@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 12:24:50 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/02 14:08:40 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 **	This is the main function, it call the ft_fill function to put the format
 **	string into linked list and then callthe findspec unctions to look for
 **	for the spec in the content of the different link of the linked list.
- */
+*/
 
-int		ft_printf(char const * restrict format, ...)
+int		ft_printf(char const *restrict format, ...)
 {
 	va_list arglst;
 	t_case	**start;

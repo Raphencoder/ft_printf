@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoabase.c                                      :+:      :+:    :+:   */
+/*   ft_allitoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/21 18:37:54 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/21 18:58:13 by rkrief           ###   ########.fr       */
+/*   Created: 2018/01/02 15:10:46 by rkrief            #+#    #+#             */
+/*   Updated: 2018/01/02 15:10:53 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char    *ft_itoabasetu(char *base, long long nb)
+char    *ft_itoald(long int nb)
 {
-	int b;
+	long int clone;
+	int i;
 	char *res;
-	char *tmp;
-	static int	sign;
+	int sign;
 
-	ft_putnbr(nb);
+	sign = 0;
+	i = 0;
 	if (nb < 0)
 	{
-		sign = -1;
+		i = 1;
+		sign = 1;
 		nb = -nb;
 	}
-	res = ft_strnew(2);
-	b = ft_strlen(base);
-	*res = base[nb % b];
-	tmp = res;
-	nb = nb / b;
-	if (nb != 0)
+	clone = nb;
+	while (nb >= 10)
 	{
-		res = ft_strjoin(ft_itoabasetu(base, nb), res);
-		free (tmp);
+		nb = nb / 10;
+		i++;
 	}
-	if (sign == -1)
-		res = ft_strjoin("-", res);
+	res = (char*)ft_memalloc(sizeof(char) * i + 2);
+	while (clone >= 10)
+	{
+		res[i] = (clone % 10) + 48;
+		clone = clone / 10;
+		i--;
+	}
+	res[i] = clone + 48;
+	if (sign)
+		res[0] = '-';
 	return (res);
 }

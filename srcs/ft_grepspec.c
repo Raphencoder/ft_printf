@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:47:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/26 19:33:13 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/02 14:20:49 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 **	This function take in parameter the content of the link.
 */
 
-char 	*ft_grepspec(char *str)
+char		*ft_grepspec(char *str)
 {
 	int		i;
 	int		j;
@@ -28,11 +28,10 @@ char 	*ft_grepspec(char *str)
 
 	flag = 0;
 	check = 0;
-	i = 0;
+	i = 1;
 	j = 0;
 	if (str[0] != '%')
 		return (NULL);
-	i++;
 	while (!ft_islength(str[i]) && str[i])
 	{
 		i++;
@@ -47,5 +46,4 @@ char 	*ft_grepspec(char *str)
 		check++;
 	}
 	return (ft_strsub(str, j, check));
-
 }

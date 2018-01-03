@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:08:18 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/20 21:46:34 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/02 14:12:01 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 **	This function check is the character 'c' is a specfier.
 */
-
 
 int		ft_isspec(char c)
 {

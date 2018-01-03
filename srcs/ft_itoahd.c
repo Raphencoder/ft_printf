@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scs.c                                           :+:      :+:    :+:   */
+/*   ft_allitoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/14 20:12:54 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 13:19:10 by rkrief           ###   ########.fr       */
+/*   Created: 2018/01/02 15:10:46 by rkrief            #+#    #+#             */
+/*   Updated: 2018/01/02 15:10:53 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_scs(int nb, char c)
+char    *ft_itoahd(short int nb)
 {
-	char	*str;
-	int		i;
+	short int clone;
+	int i;
+	char *res;
+	int sign;
 
+	sign = 0;
 	i = 0;
-	if (nb <= 0)
-		return ("");
-	str = (char*)ft_memalloc(sizeof(char) * nb + 1);
-	while (i < nb)
+	if (nb < 0)
 	{
-		str[i] = c;
+		i = 1;
+		sign = 1;
+		nb = -nb;
+	}
+	clone = nb;
+	while (nb >= 10)
+	{
+		nb = nb / 10;
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	res = (char*)ft_memalloc(sizeof(char) * i + 2);
+	while (clone >= 10)
+	{
+		res[i] = (clone % 10) + 48;
+		clone = clone / 10;
+		i--;
+	}
+	res[i] = clone + 48;
+	if (sign)
+		res[0] = '-';
+	return (res);
 }

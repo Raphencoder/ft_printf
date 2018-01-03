@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2017/12/21 18:53:45 by rkrief           ###   ########.fr        #
+#    Updated: 2018/01/02 14:15:08 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,11 @@ NAME = 		libftprintf.a
 HEADER =	includes
 
 P_SRC = 	./srcs/ft_newblck.c \
+			./srcs/ft_itoalld.c \
+			./srcs/ft_itoahd.c \
+			./srcs/ft_itoajd.c \
+			./srcs/ft_itoazd.c \
+			./srcs/ft_itoald.c \
 			./srcs/ft_printlst.c \
 			./srcs/ft_fillstr.c \
 			./srcs/ft_takespec.c \
@@ -35,11 +40,14 @@ P_SRC = 	./srcs/ft_newblck.c \
 			./srcs/ft_intc.c \
 			./srcs/ft_scs.c \
 			./srcs/ft_call.c \
-			./srcs/ft_itoabasetu.c \
-			
 
 P_OBJ =		ft_newblck.o \
 			ft_fillstr.o \
+			ft_itoalld.o \
+			ft_itoahd.o \
+			ft_itoajd.o \
+			ft_itoazd.o \
+			ft_itoald.o \
 			ft_ischar.o \
 			ft_printlst.o \
 			ft_deletechar.o \
@@ -59,8 +67,6 @@ P_OBJ =		ft_newblck.o \
 			ft_intc.o \
 			ft_scs.o \
 			ft_call.o \
-			ft_itoabasetu.o
-			
 
 L_SRC =		./libft/ft_putchar.c \
 			./libft/ft_putstr.c \
