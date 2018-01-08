@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/03 21:37:44 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/08 12:04:33 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char				*ft_takeflag(char *str);
 char				*ft_applyflag(t_case *block, char *str);
 int					ft_printf(char const *restrict format, ...);
 char				*ft_itoad(int nb);
+char				*ft_itoac(intmax_t nbr);
 char				*ifdot(t_case *block, char *s, int sign, int *hey);
 char				*ft_putspace(t_case *block, char *s);
 char				*ft_putspacetwo(t_case *block, char *s);

@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2018/01/02 14:15:08 by rkrief           ###   ########.fr        #
+#    Updated: 2018/01/08 13:09:23 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ P_OBJ =		ft_newblck.o \
 			ft_call.o \
 
 L_SRC =		./libft/ft_putchar.c \
+			./libft/ft_putwchar.c \
 			./libft/ft_putstr.c \
 			./libft/ft_memset.c \
 			./libft/ft_bzero.c \
@@ -132,6 +133,7 @@ L_SRC =		./libft/ft_putchar.c \
 
 
 L_OBJ =		ft_putchar.o \
+			ft_putwchar.o \
 			ft_putstr.o \
 			ft_memset.o \
 			ft_bzero.o \

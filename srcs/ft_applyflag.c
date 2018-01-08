@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/28 02:11:50 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/08 12:15:37 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ char		*ft_applyflagthree(t_case *block, char *s)
 			s = ft_strjoin(ft_scs(block->flag.width - (int)ft_strlen(s),
 ' '), s);
 	}
-	if (block->flag.sharp && (block->flag.spec == 'X' || block->flag.spec == 'x'
-	|| block->flag.spec == 'o') && block->flag.dot != -1 &&
+	if (block->flag.sharp && (block->flag.spec == 'X' ||
+block->flag.spec == 'x') && block->flag.dot != -1 &&
 ft_strcmp("0", s) && block->flag.zero)
 	{
 		if (block->flag.spec == 'X')
@@ -67,7 +67,8 @@ char		*ft_applyflagbegin(t_case *block, char *s, int *hey, int *sign)
 {
 	*hey = 0;
 	*sign = 0;
-	if (block->flag.sharp && block->flag.zero && block->flag.width)
+	if (block->flag.sharp && block->flag.zero && block->flag.width &&
+block->flag.spec != 'o')
 		block->flag.width -= 2;
 	if (!block->flag.less && (block->flag.spec == 'd' ||
 block->flag.spec == 'i'))

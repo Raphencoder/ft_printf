@@ -6,7 +6,7 @@
 /*   By: Raphael <raphaelkriefbm@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 15:02:17 by Raphael           #+#    #+#             */
-/*   Updated: 2017/11/12 11:02:31 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/08 13:07:41 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putstr(const char *s)
 		return ;
 	while (s[i] != '\0')
 	{
-		ft_putchar(s[i]);
+		ft_putwchar(s[i]);
 		i++;
 	}
 }

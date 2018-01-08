@@ -6,12 +6,13 @@
 #    By: Raphael <raphaelkriefbm@gmail.oom>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/26 13:55:42 by Raphael           #+#    #+#              #
-#    Updated: 2017/12/19 20:18:27 by rkrief           ###   ########.fr        #
+#    Updated: 2018/01/08 13:08:41 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME =		libft.a
 
 SRC =		ft_putchar.c \
+			ft_putwchar.c \
 			ft_putstr.c \
 			ft_memset.c \
 			ft_bzero.c \
@@ -72,6 +73,7 @@ SRC =		ft_putchar.c \
 			ft_lstmap.c
 
 OBJ =		ft_putchar.o \
+			ft_putwchar.o \
 			ft_putstr.o \
 			ft_strminimalize.o \
 			ft_memset.o \
