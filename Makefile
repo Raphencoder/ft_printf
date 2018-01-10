@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2018/01/08 13:09:23 by rkrief           ###   ########.fr        #
+#    Updated: 2018/01/10 16:47:38 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -194,7 +194,7 @@ L_OBJ =		ft_putchar.o \
 			ft_lstmap.o \
 			ft_strndup.o
 
-FLAG =		 -Wall -Werror -Wextra
+FLAG =		 -Wall -Werror -Wextra -g
 
 all :		$(NAME)
 

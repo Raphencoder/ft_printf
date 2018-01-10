@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:23:20 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 15:08:56 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 16:46:12 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_case		**ft_fillstr(char *str)
 	start = (t_case**)ft_memalloc(sizeof(t_case*));
 	while (str[i])
 	{
-		while (str[i] != '%' && str[i])
+		while (str[i] && str[i] != '%' && str[i])
 			i++;
 		if (i != 0)
 		{

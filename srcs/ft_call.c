@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 18:40:24 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/09 18:19:51 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 16:51:37 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_call(t_case *block, va_list arglst)
 {
 	static int count;
 
-	if (block->next != NULL)
+	if (block == NULL)
+		block = NULL;
+	else if (block->next != NULL)
 	{
 		ft_call(block->next, arglst);
 		count++;

@@ -6,13 +6,13 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:51:08 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 14:34:53 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 16:24:12 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_len_int(intmax_t n)
+static int		ft_len_int(long long n)
 {
 	if (n < 0)
 		n = -n;
@@ -22,7 +22,7 @@ static int		ft_len_int(intmax_t n)
 		return (ft_len_int(n / 10) + 1);
 }
 
-static char		*ft_while_itoa(int len_int, char *str, intmax_t nbr, int m)
+static char		*ft_while_itoa(int len_int, char *str, long long nbr, int m)
 {
 	if (m == 1)
 	{
@@ -38,7 +38,7 @@ static char		*ft_while_itoa(int len_int, char *str, intmax_t nbr, int m)
 	return (str);
 }
 
-char			*ft_itoac(intmax_t nbr)
+char			*ft_itoac(long long nbr)
 {
 	char	*str;
 	int		len_int;

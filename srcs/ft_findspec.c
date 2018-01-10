@@ -6,21 +6,21 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 14:12:52 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 17:55:38 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-**	This function will identify wich function to call depending on the
+**	This function will identify which function to call depending on the
 **  comparison between the 'str' passed in parameter and the string that i
 **	will write.
 */
 
-char	*ft_itoap(intmax_t nb)
+char	*ft_itoap(long long nb)
 {
-	intmax_t	clone;
+	long long	clone;
 	int			i;
 	char		*res;
 
@@ -44,6 +44,10 @@ char	*ft_itoap(intmax_t nb)
 
 char	*ft_findspectwo(t_case *block, va_list arglst, char *flag, char *s)
 {
+	if (block->flag.spec == 'u' && block->flag.space)
+		block->flag.space = 0;
+	if (block->flag.spec == 'u' && block->flag.plus)
+		block->flag.plus = 0;
 	if (block->flag.spec == 'd' || block->flag.spec == 'i')
 	{
 		if (ft_strequ(flag, "ll"))
@@ -53,9 +57,11 @@ char	*ft_findspectwo(t_case *block, va_list arglst, char *flag, char *s)
 		if (!flag)
 			return (ft_itoac(va_arg(arglst, int)));
 		if (ft_strequ(flag, "j"))
-			return (ft_itoac(va_arg(arglst, intmax_t)));
+			return (ft_itoac(va_arg(arglst, long long)));
 		if (ft_strequ(flag, "z"))
 			return (ft_itoac(va_arg(arglst, size_t)));
+		if (ft_strequ(flag, "hh"))
+			return (ft_itoac((char)va_arg(arglst, int)));
 		else
 			return (ft_itoac((short int)va_arg(arglst, int)));
 	}
@@ -65,13 +71,16 @@ block->flag.spec == 'x' || block->flag.spec == 'X' || block->flag.spec == 'p')
 		if (ft_strequ(flag, "ll"))
 			return (ft_choosebase(s, va_arg(arglst, unsigned long long)));
 		if (ft_strequ(flag, "l"))
-			return (ft_choosebase(s, va_arg(arglst,  unsigned long)));
+			return (ft_choosebase(s, (unsigned long)va_arg(arglst,  unsigned long)));
 		if (!flag)
 			return (ft_choosebase(s, va_arg(arglst,  unsigned int)));
 		if (ft_strequ(flag, "j"))
 			return (ft_choosebase(s, va_arg(arglst, uintmax_t)));
 		if (ft_strequ(flag, "z"))
 			return (ft_choosebase(s, va_arg(arglst, unsigned int)));
+		if (ft_strequ(flag, "h"))
+			return (ft_choosebase(s, (unsigned short)va_arg(arglst, int)));
+			
 		else
 			return (ft_choosebase(s, (unsigned short)va_arg(arglst, unsigned int)));
 	}
@@ -115,7 +124,7 @@ char	*ft_findspec(t_case *block, va_list arglst)
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
 	flag = ft_takeflag(s);
-	if (s == NULL)
+		if (s == NULL)
 		return (block->content);
 	if (ft_strequ(s, "%"))
 		return ("%");

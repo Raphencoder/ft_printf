@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 11:30:46 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 15:37:24 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 16:35:19 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,8 @@ void	ft_putflags(t_case *block)
 		}
 		i++;
 	}
+	if (block->flag.zero && block->flag.less)
+		block->flag.zero = 0;
+	if (block->flag.dot && block->flag.width && block->flag.space)
+		block->flag.space = 0;
 }

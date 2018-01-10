@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 21:22:29 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 15:31:52 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 18:30:13 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 int main()
 {
-	short int i;
+	unsigned long int i;
 
-	i = -9645;
+	i = 4294967296;
 	char c;
 	c = '\0';
-	printf("p %d\n\n", printf("p %x\n\n", 0));
-	printf("\n\n");
-	printf("f %d\n\n", ft_printf("f %x\n\n", 0));
+//	printf("p %d\n\n", printf("p %hU\n", i));
+//	printf("\n\n");
+//	printf("f %d\n\n", ft_printf("f %hU\n", i));
+	printf("%U", 4294967296);
 	return (0);
 }
+
