@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_applyflag.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/09 18:31:48 by rkrief           ###   ########.fr       */
+/*   Created: 2017/12/14 21:22:29 by rkrief            #+#    #+#             */
+/*   Updated: 2018/01/10 15:31:52 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./includes/ft_printf.h"
+#include <stdio.h>
 
-char		*ft_putspace(t_case *block, char *s)
+int main()
 {
-	int		i;
-	char	*tmp;
+	short int i;
 
-	i = 0;
-	if (block)
-		block->content = block->content;
-	while (s[i] <= 32 && s[i])	
-		i++;
-	tmp = s;
-	s = ft_strjoin("-", s + i);
-	tmp = ft_strndup(tmp, i);
-	s = ft_strjoin(tmp, s);
-	return (s);
+	i = -9645;
+	char c;
+	c = '\0';
+	printf("p %d\n\n", printf("p %x\n\n", 0));
+	printf("\n\n");
+	printf("f %d\n\n", ft_printf("f %x\n\n", 0));
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/27 23:53:38 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 14:12:52 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,26 @@ char	*ft_findspectwo(t_case *block, va_list arglst, char *flag, char *s)
 		if (ft_strequ(flag, "j"))
 			return (ft_itoac(va_arg(arglst, intmax_t)));
 		if (ft_strequ(flag, "z"))
-			return (ft_itoap(va_arg(arglst, size_t)));
+			return (ft_itoac(va_arg(arglst, size_t)));
 		else
-			return (ft_itoac(va_arg(arglst, intmax_t)));
+			return (ft_itoac((short int)va_arg(arglst, int)));
 	}
 	else if (block->flag.spec == 'u' || block->flag.spec == 'o' ||
 block->flag.spec == 'x' || block->flag.spec == 'X' || block->flag.spec == 'p')
-		return (ft_choosebase(s, va_arg(arglst, uintmax_t)));
+	{
+		if (ft_strequ(flag, "ll"))
+			return (ft_choosebase(s, va_arg(arglst, unsigned long long)));
+		if (ft_strequ(flag, "l"))
+			return (ft_choosebase(s, va_arg(arglst,  unsigned long)));
+		if (!flag)
+			return (ft_choosebase(s, va_arg(arglst,  unsigned int)));
+		if (ft_strequ(flag, "j"))
+			return (ft_choosebase(s, va_arg(arglst, uintmax_t)));
+		if (ft_strequ(flag, "z"))
+			return (ft_choosebase(s, va_arg(arglst, unsigned int)));
+		else
+			return (ft_choosebase(s, (unsigned short)va_arg(arglst, unsigned int)));
+	}
 	else if (ft_strequ(s, "c") || (ft_strequ(s, "lc")))
 		return (ft_intc(va_arg(arglst, int), block));
 	return (NULL);

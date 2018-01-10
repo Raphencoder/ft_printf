@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/08 12:04:33 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 14:41:33 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
-# include <stdlib.h>
-# include <inttypes.h>
-# include <stddef.h>
+//# include <stdlib.h>
 # include <stdarg.h>
 
 typedef	struct		s_flag
@@ -29,6 +27,7 @@ typedef	struct		s_flag
 	int		sharp;
 	int		zero;
 	int		width;
+	int		neg;
 
 }					t_flag;
 

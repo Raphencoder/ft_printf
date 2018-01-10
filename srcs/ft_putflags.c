@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 11:30:46 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/02 14:07:45 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/10 15:37:24 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int		ft_ifdot(t_case *block, int i)
 {
 	i++;
 	block->flag.dot = ft_atoi(block->content + i);
-	if (block->flag.dot == 0)
+	if (block->flag.dot == 0 && ('s' == ft_takespec(block->content + 1)))
 		block->flag.dot = -1;
+	if (block->flag.dot == 0)
+		block->flag.dot = -2;
 	while (ft_isdigit((block->content)[i]))
 		i++;
 	i--;
