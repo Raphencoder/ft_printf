@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/28 01:04:39 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/11 16:15:23 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*ft_itoabase(char *base, uintmax_t nb)
 	return (res);
 }
 
-char	*ft_itoau(uintmax_t nb)
+char	*ft_itoau(unsigned long long nb)
 {
-	uintmax_t	clone;
+	unsigned long long	clone;
 	int			i;
 	char		*res;
 
@@ -57,7 +57,7 @@ char	*ft_itoau(uintmax_t nb)
 	return (res);
 }
 
-char	*ft_choosebase(char *str, uintmax_t nb)
+char	*ft_choosebase(char *str, long long nb)
 {
 	int i;
 	int	j;
@@ -76,7 +76,7 @@ char	*ft_choosebase(char *str, uintmax_t nb)
 	else if (j == 'X')
 		return (ft_itoabase("0123456789ABCDEF", nb));
 	else if (j == 'u')
-		return (ft_itoau(nb));
+		return (ft_itoabase("0123456789", nb));
 	else if (j == 'b')
 		return (ft_itoabase("01234567", nb));
 	return (NULL);

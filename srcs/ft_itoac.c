@@ -6,16 +6,15 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:51:08 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 16:24:12 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/11 16:47:37 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int		ft_len_int(long long n)
 {
-	if (n < 0)
-		n = -n;
 	if (n < 10)
 		return (1);
 	else
@@ -24,6 +23,7 @@ static int		ft_len_int(long long n)
 
 static char		*ft_while_itoa(int len_int, char *str, long long nbr, int m)
 {
+	
 	if (m == 1)
 	{
 		str[len_int--] = '0' + ((nbr + m) % 10);
@@ -45,12 +45,14 @@ char			*ft_itoac(long long nbr)
 	int		m;
 
 	m = 0;
-	len_int = ft_len_int(nbr);
+	if (nbr < -9223372036854775807)
+		return ("-9223372036854775808");
 	if (nbr < 0)
 	{
 		nbr = -(nbr + 1);
 		m = 1;
 	}
+	len_int = ft_len_int(nbr);
 	str = ft_strnew(len_int + m);
 	if (str == NULL)
 		return (NULL);

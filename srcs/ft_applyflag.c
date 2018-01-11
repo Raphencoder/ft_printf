@@ -6,14 +6,17 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 15:46:05 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/11 17:48:13 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
 char		*applyflagtwo(t_case *block, char *s, int sign)
 {
+	int i;
+	i = 0;
 	if ((block->flag.plus) && block->flag.width && !sign && s[0] != '-')
 		block->flag.width--;
 	if (block->flag.spec != 's' && block->flag.spec != 'c')
@@ -26,14 +29,19 @@ char		*applyflagtwo(t_case *block, char *s, int sign)
 	}
 	if (block->flag.sharp && (block->flag.spec == 'X' ||
 block->flag.spec == 'x' || block->flag.spec == 'o') && block->flag.dot != -1 &&
-ft_strcmp("0", s) && !block->flag.zero)
+(ft_strcmp("0", s) != 0) && !block->flag.zero)
 	{
 		if (block->flag.spec == 'X')
 			s = ft_strjoin("0X", s);
 		else if (block->flag.spec == 'x')
 			s = ft_strjoin("0x", s);
 		else if (block->flag.spec == 'o')
-			s = ft_strjoin("0", s);
+		{
+			while (s[i] && s[i] <= 32)
+				i++;
+			if (s[i] != '0')
+				s = ft_strjoin("0", s);
+		}
 	}
 	return (s);
 }
@@ -110,7 +118,7 @@ char		*ft_applyflag(t_case *block, char *s)
 	if (ft_strequ("0", s) && block->flag.dot == -2)
 		block->flag.dot = -1;
 	if (block->flag.neg)
-		block->flag.space = 0;	
+		block->flag.space = 0;
 	if (block->flag.dot)
 		s = ifdot(block, s, sign, &hey);
 	s = ft_applyflagbegin(block, s, &hey, &sign);

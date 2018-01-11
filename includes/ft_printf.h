@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 16:25:44 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/11 13:50:40 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char				*ft_putspace(t_case *block, char *s);
 char				*ft_putspacetwo(t_case *block, char *s);
 char				*ft_findspec(t_case *block, va_list arglst);
 char				*ft_scs(int nb, char c);
-char				*ft_choosebase(char *str, uintmax_t nb);
+char				*ft_choosebase(char *str, long long nb);
 char				*ft_grepspec(char *str);
 char				*ft_intc(char c, t_case *block);
 t_case				**ft_fillstr(char *format);

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 17:55:38 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/11 16:12:43 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ block->flag.spec == 'x' || block->flag.spec == 'X' || block->flag.spec == 'p')
 		if (ft_strequ(flag, "ll"))
 			return (ft_choosebase(s, va_arg(arglst, unsigned long long)));
 		if (ft_strequ(flag, "l"))
-			return (ft_choosebase(s, (unsigned long)va_arg(arglst,  unsigned long)));
+			return (ft_choosebase(s, (unsigned long int)va_arg(arglst, unsigned long int)));
 		if (!flag)
 			return (ft_choosebase(s, va_arg(arglst,  unsigned int)));
 		if (ft_strequ(flag, "j"))
@@ -107,7 +107,7 @@ char	*ft_minimalize(char *str)
 			str[i] = str[i] + 32;
 	}
 	res = ft_strdup(str);
-	free(str);
+	ft_strclr(str);
 	return (res);
 }
 
@@ -120,10 +120,10 @@ char	*ft_findspec(t_case *block, va_list arglst)
 	if (!block->flag.spec)
 		return (block->content);
 	s = ft_grepspec(block->content);
+	flag = ft_takeflag(s);
 	s = ft_minimalize(s);
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
-	flag = ft_takeflag(s);
 		if (s == NULL)
 		return (block->content);
 	if (ft_strequ(s, "%"))
