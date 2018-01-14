@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2018/01/10 16:47:38 by rkrief           ###   ########.fr        #
+#    Updated: 2018/01/14 11:46:26 by Raphael          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ P_SRC = 	./srcs/ft_newblck.c \
 			./srcs/ft_findspec.c \
 			./srcs/ft_putspacetwo.c \
 			./srcs/ft_isspec.c \
+			./srcs/ft_checkstr.c \
 			./srcs/ft_itoac.c \
 			./srcs/ft_takeflag.c \
 			./srcs/ft_mvinlst.c \
@@ -50,6 +51,7 @@ P_OBJ =		ft_newblck.o \
 			ft_itoac.o \
 			ft_deletechar.o \
 			ft_takeflag.o \
+			ft_checkstr.o \
 			ft_takespec.o \
 			ft_isspec.o \
 			ft_findspec.o \

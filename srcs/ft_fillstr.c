@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_fillstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:23:20 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/10 16:46:12 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/14 12:07:16 by Raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,26 @@ t_case		**ft_fillstr(char *str)
 	int		i;
 	int		j;
 	t_case	**start;
+	t_case	*block;
 	int		flag;
 
-	ft_initialize(&i, &j, &flag);
 	start = (t_case**)ft_memalloc(sizeof(t_case*));
+	if (ft_checkstr(str))
+	{
+			block = (t_case*)ft_memalloc(sizeof(t_case));
+			if (ft_strequ(" ", ft_checkstr(str)))
+				{
+					return (NULL);
+				}
+			else
+			{
+					block->content = (ft_checkstr(str));
+					block->flag.dot = ft_strlen(ft_checkstr(str));
+					*start = block;
+					return (start);
+			}
+	}
+	ft_initialize(&i, &j, &flag);
 	while (str[i])
 	{
 		while (str[i] && str[i] != '%' && str[i])
