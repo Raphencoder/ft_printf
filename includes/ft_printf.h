@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 15:09:41 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/14 11:19:17 by Raphael          ###   ########.fr       */
+/*   Updated: 2018/01/15 20:12:48 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@
 # include "libft.h"
 //# include <stdlib.h>
 # include <stdarg.h>
+# include <wchar.h>
 
 typedef	struct		s_flag
 {
-	int		spec;
-	int		plus;
-	int		less;
-	int		space;
-	int		dot;
-	int		sharp;
-	int		zero;
-	int		width;
-	int		neg;
+	int			spec;
+	int			plus;
+	int			less;
+	int			space;
+	int			dot;
+	int			sharp;
+	int			zero;
+	int			width;
+	int			neg;
+	wchar_t		*wstr;
+	wchar_t		c;
 
 }					t_flag;
 
@@ -40,7 +43,9 @@ typedef	struct		s_case
 
 }					t_case;
 
-void				ft_newblck(char *str, int i, int len, t_case **start);
+t_case				*ft_newblck(char *str, int i, int len);
+int					ft_putwstr(wchar_t *str);
+int					ft_putwchar(wchar_t c);
 int					ft_printlst(t_case *start);
 void				ft_mvinlst(t_case *block);
 void				ft_putflags(t_case *block);
@@ -62,9 +67,8 @@ char				*ft_putspace(t_case *block, char *s);
 char				*ft_putspacetwo(t_case *block, char *s);
 char				*ft_findspec(t_case *block, va_list arglst);
 char				*ft_scs(int nb, char c);
-char				*ft_choosebase(char *str, long long nb);
-char				*ft_checkstr(char *str);
+char				*ft_choosebase(char *str, long long nb, char *flag);
 char				*ft_grepspec(char *str);
 char				*ft_intc(char c, t_case *block);
-t_case				**ft_fillstr(char *format);
+t_case				*ft_fillstr(char *format);
 #endif

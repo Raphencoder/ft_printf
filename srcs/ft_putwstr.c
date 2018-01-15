@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Raphael <raphaelkriefbm@gmail.com>         +#+  +:+       +#+        */
+/*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/14 11:20:42 by Raphael           #+#    #+#             */
-/*   Updated: 2018/01/14 12:07:40 by Raphael          ###   ########.fr       */
+/*   Created: 2018/01/15 17:32:30 by rkrief            #+#    #+#             */
+/*   Updated: 2018/01/15 19:12:27 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../includes/ft_printf.h"
 
-int main()
+int	ft_putwstr(wchar_t *str)
 {
-		printf("% z\n\n");
-		ft_printf("% z");
+	int i;
+	int nb;
+
+	i = 0;
+	nb = 0;
+	while (str[i])
+	{
+		nb = nb + ft_putwchar(str[i]);
+		i++;
+	}
+	return (nb);
 }

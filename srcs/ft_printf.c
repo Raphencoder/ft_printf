@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_begin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/14 12:09:53 by Raphael          ###   ########.fr       */
+/*   Updated: 2018/01/15 16:37:08 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,21 @@
 int		ft_printf(char const *restrict format, ...)
 {
 	va_list arglst;
-	t_case	**start;
+	t_case	*start;
 	t_case	*block;
 	int		size;
 
 	va_start(arglst, format);
 	if (ft_strequ(format, ""))
 		return (0);
-	if (ft_fillstr((char*)format) == NULL)
-			return (0);
 	start = ft_fillstr((char*)format);
-	block = *start;
-	if (block->flag.dot)
-	{
-			ft_putstr(block->content);
-			return (block->flag.dot);
-	}
+	block = start;
+	if (!block)
+		return (0);
 	ft_call(block, arglst);
-	size = ft_printlst(*start);
+	if (!block->content)
+		return (0);
+	size = ft_printlst(start);
 	va_end(arglst);
 	return (size);
 }

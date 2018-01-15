@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 15:16:04 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/11 15:55:11 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 13:33:43 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_takeflag(char *str)
 	char	*res;
 
 	i = 0;
-	while (!ft_isspec(str[i]))
+	while (str[i] && !ft_isspec(str[i]))
 		i++;
 	if (str[i] == 'U' || str[i] == 'D' || str[i] == 'O')
 	{

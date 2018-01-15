@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2018/01/14 11:46:26 by Raphael          ###   ########.fr        #
+#    Updated: 2018/01/15 17:53:22 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,61 +14,39 @@ NAME = 		libftprintf.a
 
 HEADER =	includes
 
-P_SRC = 	./srcs/ft_newblck.c \
-			./srcs/ft_printlst.c \
-			./srcs/ft_fillstr.c \
-			./srcs/ft_takespec.c \
-			./srcs/ft_deletechar.c \
-			./srcs/ft_findspec.c \
-			./srcs/ft_putspacetwo.c \
-			./srcs/ft_isspec.c \
-			./srcs/ft_checkstr.c \
-			./srcs/ft_itoac.c \
-			./srcs/ft_takeflag.c \
-			./srcs/ft_mvinlst.c \
-			./srcs/ft_putflags.c \
-			./srcs/ifdot.c \
-			./srcs/ft_isflag.c \
-			./srcs/ft_issigned.c \
-			./srcs/ft_islength.c \
-			./srcs/ft_putspace.c \
-			./srcs/ft_ischar.c \
-			./srcs/ft_applyflag.c \
-			./srcs/ft_printf.c \
-			./srcs/ft_findspec.c \
-			./srcs/ft_choosebase.c \
-			./srcs/ft_grepspec.c \
-			./srcs/ft_intc.c \
-			./srcs/ft_scs.c \
-			./srcs/ft_call.c \
+SRC =		srcs
 
-P_OBJ =		ft_newblck.o \
-			ft_fillstr.o \
-			ft_ischar.o \
-			ft_putspacetwo.o \
-			ft_printlst.o \
-			ft_putspace.o \
-			ft_itoac.o \
-			ft_deletechar.o \
-			ft_takeflag.o \
-			ft_checkstr.o \
-			ft_takespec.o \
-			ft_isspec.o \
-			ft_findspec.o \
-			ft_mvinlst.o \
-			ft_putflags.o \
-			ft_isflag.o \
-			ft_issigned.o \
-			ft_islength.o \
-			ft_applyflag.o \
-			ft_printf.o \
-			ft_findspec.o \
-			ft_choosebase.o \
-			ft_grepspec.o \
-			ifdot.o \
-			ft_intc.o \
-			ft_scs.o \
-			ft_call.o \
+P_SRC = 	ft_newblck.c \
+			ft_printlst.c \
+			ft_fillstr.c \
+			ft_takespec.c \
+			ft_putwstr.c \
+			ft_deletechar.c \
+			ft_findspec.c \
+			ft_putspacetwo.c \
+			ft_isspec.c \
+			ft_itoac.c \
+			ft_takeflag.c \
+			ft_mvinlst.c \
+			ft_putflags.c \
+			ifdot.c \
+			ft_isflag.c \
+			ft_issigned.c \
+			ft_islength.c \
+			ft_putspace.c \
+			ft_ischar.c \
+			ft_applyflag.c \
+			ft_printf.c \
+			ft_findspec.c \
+			ft_choosebase.c \
+			ft_grepspec.c \
+			ft_intc.c \
+			ft_scs.c \
+			ft_call.c \
+
+SRCS = $(addprefix $(SRC)/, $(P_SRC))
+
+P_OBJ = $(P_SRC:.c=.o)		
 
 L_SRC =		./libft/ft_putchar.c \
 			./libft/ft_putwchar.c \
@@ -196,13 +174,13 @@ L_OBJ =		ft_putchar.o \
 			ft_lstmap.o \
 			ft_strndup.o
 
-FLAG =		 -Wall -Werror -Wextra -g
+FLAG =		 -Wall -Werror -Wextra 
 
 all :		$(NAME)
 
 $(NAME) :	
 	make -C libft/
-	@gcc -c -I$(HEADER) $(FLAG) $(P_SRC) $(L_SRC)
+	@gcc -c -I$(HEADER) $(FLAG) $(SRCS) $(L_SRC)
 	@ar rc $(NAME) $(L_OBJ) $(P_OBJ)
 
 clean :

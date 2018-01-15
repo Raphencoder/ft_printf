@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:51:08 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/11 16:47:37 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 15:24:14 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ char			*ft_itoac(long long nbr)
 	str = ft_strnew(len_int + m);
 	if (str == NULL)
 		return (NULL);
-	str[len_int + 1] = '\0';
 	if (m == 0)
 		len_int--;
 	str = ft_while_itoa(len_int, str, nbr, m);

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 19:41:00 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/19 18:43:09 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 13:34:20 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_takespec(char *s)
 	int i;
 
 	i = 0;
-	while (!ft_isspec(s[i]))
+	while (s[i] && !ft_isspec(s[i]))
 		i++;
 	return (s[i]);
 }

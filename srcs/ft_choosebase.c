@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/11 16:15:23 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 20:16:16 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_itoau(unsigned long long nb)
 	return (res);
 }
 
-char	*ft_choosebase(char *str, long long nb)
+char	*ft_choosebase(char *str, long long nb, char *flag)
 {
 	int i;
 	int	j;
@@ -65,6 +65,12 @@ char	*ft_choosebase(char *str, long long nb)
 	i = 0;
 	j = 0;
 	j = ft_takespec(str);
+	if (nb < 0 && flag == NULL)
+		nb = (unsigned int)nb;
+	else if (flag == NULL)
+		nb = (unsigned long long)nb;
+	if (nb == 4294967296 && !flag)
+		return ("0");
 	if (j == 'o')
 		return (ft_itoabase("01234567", nb));
 	else if (j == 'x' || j == 'p')

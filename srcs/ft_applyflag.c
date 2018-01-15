@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/11 17:48:13 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 14:59:17 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char		*applyflagtwo(t_case *block, char *s, int sign)
 		}
 	}
 	if (block->flag.sharp && (block->flag.spec == 'X' ||
-block->flag.spec == 'x' || block->flag.spec == 'o') && block->flag.dot != -1 &&
-(ft_strcmp("0", s) != 0) && !block->flag.zero)
+				block->flag.spec == 'x' || block->flag.spec == 'o') && block->flag.dot != -1 &&
+			(ft_strcmp("0", s) != 0) && !block->flag.zero)
 	{
 		if (block->flag.spec == 'X')
 			s = ft_strjoin("0X", s);
@@ -53,15 +53,15 @@ char		*ft_applyflagthree(t_case *block, char *s)
 	if (block->flag.width && !block->flag.zero)
 	{
 		if (block->flag.less)
-		s = ft_strjoin(s, ft_scs((block->flag.width) - (((int)ft_strlen(s) + block->flag.space)), ' '));
-			else
+			s = ft_strjoin(s, ft_scs((block->flag.width) - (((int)ft_strlen(s) + block->flag.space)), ' '));
+		else
 			s = ft_strjoin(ft_scs((block->flag.width) - (int)ft_strlen(s),
-' '), s);
-	
+						' '), s);
+
 	}
 	if (block->flag.sharp && (block->flag.spec == 'X' ||
-block->flag.spec == 'x') && block->flag.dot != -1 &&
-ft_strcmp("0", s) && block->flag.zero)
+				block->flag.spec == 'x') && block->flag.dot != -1 &&
+			ft_strcmp("0", s) && block->flag.zero)
 	{
 		i = 0;
 		if (s[0] == ' ')
@@ -87,12 +87,12 @@ ft_strcmp("0", s) && block->flag.zero)
 
 char		*ft_applyflagbegin(t_case *block, char *s, int *hey, int *sign)
 {
-		if(hey)
-			*hey = 1;
+	if(hey)
+		*hey = 1;
 
-//	*sign = 0;
+	//	*sign = 0;
 	if (block->flag.sharp && block->flag.zero && block->flag.width &&
-block->flag.spec != 'o')
+			block->flag.spec != 'o')
 		block->flag.width -= 2;
 	if ((block->flag.spec == 'd' || block->flag.spec == 'i'))
 	{
@@ -103,7 +103,7 @@ block->flag.spec != 'o')
 	{
 		if (block->flag.spec == 'o' && block->flag.sharp)
 			return (s);
-			s = ft_strdup("");
+		s = ft_strdup("");
 	}
 	return (s);
 }
@@ -124,7 +124,7 @@ char		*ft_applyflag(t_case *block, char *s)
 	s = ft_applyflagbegin(block, s, &hey, &sign);
 	s = applyflagtwo(block, s, sign);
 	if (block->flag.zero && block->flag.spec != 's' && block->flag.spec != 'c'
-	&& block->flag.dot == 0)
+			&& block->flag.dot == 0)
 		s = ft_strjoin(ft_scs(block->flag.width - (int)ft_strlen(s), '0'), s);
 	if (block->flag.less && !block->flag.zero)
 		s = ft_strjoin(s, ft_scs((block->flag.width) - ((int)ft_strlen(s) + block->flag.space), ' '));

@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:34:04 by rkrief            #+#    #+#             */
-/*   Updated: 2017/12/28 00:58:23 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 19:30:22 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	ft_printlst(t_case *start)
 {
-	static int size;
+	int size;
 
-	if ((*start).next != NULL)
-		ft_printlst((*start).next);
-	if (((int)(*start).content_size) == ((int)-1))
+	size = 0;
+	if (start == 0)
+		return (0);
+	if (((int)start->content_size) == ((int)-1))
 	{
 		if (start->flag.width)
 		{
@@ -27,9 +28,20 @@ int	ft_printlst(t_case *start)
 		}
 		ft_putchar(0);
 		size = size + 1;
-		return (size);
+		return (size + ft_printlst(start->next));
 	}
-	size = size + (ft_strlen((*start).content));
-	ft_putstr((*start).content);
-	return (size);
+	if (start->flag.wstr)
+	{
+		size = size + ft_putwstr(start->flag.wstr);
+		return (size + ft_printlst(start->next));
+	}
+	if (start->flag.c)
+	{
+		size = size + ft_putwchar(start->flag.c);
+		return (size + ft_printlst(start->next));
+	}
+	else
+		ft_putstr(start->content);
+	size = size + (ft_strlen(start->content));
+	return (size + ft_printlst(start->next));
 }

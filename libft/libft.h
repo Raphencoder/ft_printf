@@ -6,7 +6,7 @@
 /*   By: Raphael <raphaelkriefbm@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 12:49:10 by Raphael           #+#    #+#             */
-/*   Updated: 2018/01/08 13:08:13 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/15 19:11:12 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_list
 }					t_list;
 
 void				ft_putchar(char c);
-void				ft_putwchar(wchar_t wc);
+int					ft_putwchar(wchar_t wc);
 void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_memdel(void **ap);
