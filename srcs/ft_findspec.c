@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/15 20:14:09 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/16 19:06:42 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_findspectwo(t_case *block, va_list arglst, char *flag, char *s)
 		block->flag.plus = 0;
 	if (block->flag.spec == 'd' || block->flag.spec == 'i')
 	{
+		free(s);
 		if (ft_strequ(flag, "ll"))
 			return (ft_itoac(va_arg(arglst, long long int)));
 		if (ft_strequ(flag, "l"))
@@ -116,7 +117,7 @@ char	*ft_minimalize(char *str)
 	if (tmp)
 	{
 		res = ft_strdup(tmp);
-		ft_strclr(tmp);
+		free(tmp);
 		return (res);
 	}
 	return (str);
@@ -126,13 +127,18 @@ char	*ft_findspec(t_case *block, va_list arglst)
 {
 	char	*s;
 	char	*flag;
+	char *tmp;
 
 	ft_putflags(block);
 	if (!block->flag.spec)
 		return (block->content);
 	s = ft_grepspec(block->content);
+	free(block->content);
 	flag = ft_takeflag(s);
+	tmp = s;
 	s = ft_minimalize(s);
+	if (!ft_strequ(tmp, s))
+		free(tmp);
 	if (block->flag.spec)
 		block->flag.spec = ft_takespec(s);
 	if (s == NULL)

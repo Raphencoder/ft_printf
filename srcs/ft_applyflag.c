@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/15 14:59:17 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/16 19:12:12 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ char		*ft_applyflag(t_case *block, char *s)
 {
 	int sign;
 	int hey;
-
+	char *tmp;
 	sign = 0;
 	hey = 0;
 	if (ft_strequ("0", s) && block->flag.dot == -2)
@@ -121,11 +121,22 @@ char		*ft_applyflag(t_case *block, char *s)
 		block->flag.space = 0;
 	if (block->flag.dot)
 		s = ifdot(block, s, sign, &hey);
-	s = ft_applyflagbegin(block, s, &hey, &sign);
+	tmp = s;
+	s = ft_applyflagbegin(block, tmp, &hey, &sign);
+	if (!ft_strequ(tmp, s))
+		ft_strdel(&tmp);
+	tmp = s;
 	s = applyflagtwo(block, s, sign);
+	if (!ft_strequ(tmp, s))
+		ft_strdel(&tmp);
 	if (block->flag.zero && block->flag.spec != 's' && block->flag.spec != 'c'
 			&& block->flag.dot == 0)
-		s = ft_strjoin(ft_scs(block->flag.width - (int)ft_strlen(s), '0'), s);
+	{
+		tmp = s;
+		s = ft_strjoin(ft_scs(block->flag.width - (int)ft_strlen(s), '0'), tmp);
+		if (!ft_strequ(tmp, s))
+			ft_strdel(&tmp);
+	}
 	if (block->flag.less && !block->flag.zero)
 		s = ft_strjoin(s, ft_scs((block->flag.width) - ((int)ft_strlen(s) + block->flag.space), ' '));
 	s = ft_applyflagthree(block, s);
@@ -137,6 +148,11 @@ char		*ft_applyflag(t_case *block, char *s)
 		s = ft_putspace(block, s);
 	}
 	else if (block->flag.plus && !sign && s[0] != '-')
-		s = ft_putspacetwo(block, s);
+	{
+		tmp = s;
+		s = ft_putspacetwo(block, tmp);
+		if (!ft_strequ(s, tmp))
+			free(tmp);
+	}
 	return (s);
 }

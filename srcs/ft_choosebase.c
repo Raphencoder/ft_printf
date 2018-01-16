@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/15 20:16:16 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/16 19:07:42 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char	*ft_choosebase(char *str, long long nb, char *flag)
 	i = 0;
 	j = 0;
 	j = ft_takespec(str);
+	free(str);
 	if (nb < 0 && flag == NULL)
 		nb = (unsigned int)nb;
 	else if (flag == NULL)

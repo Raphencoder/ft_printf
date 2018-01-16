@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/15 16:37:08 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/16 19:22:29 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_printf(char const *restrict format, ...)
 	t_case	*start;
 	t_case	*block;
 	int		size;
+	t_case	*tmp;
 
 	va_start(arglst, format);
 	if (ft_strequ(format, ""))
@@ -36,6 +37,16 @@ int		ft_printf(char const *restrict format, ...)
 	if (!block->content)
 		return (0);
 	size = ft_printlst(start);
+	while (start != NULL)
+	{
+		tmp = start;
+		start = start->next;
+//		free(tmp->content);
+//		if (tmp->flag.wstr)
+//			ft_strclr((char*)tmp->flag.wstr);
+		ft_memdel((void**)&tmp);
+	}
+	free(start);
 	va_end(arglst);
 	return (size);
 }
