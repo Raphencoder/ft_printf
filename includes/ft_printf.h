@@ -12,9 +12,7 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
 # include "libft.h"
-//# include <stdlib.h>
 # include <stdarg.h>
 # include <wchar.h>
 
@@ -44,6 +42,11 @@ typedef	struct		s_case
 }					t_case;
 
 t_case				*ft_newblck(char *str, int i, int len);
+char				*ft_applybegin(t_case *block, char *s, int *hey, int *sign);
+char				*applyflagtwo(t_case *block, char *s, int sign);
+char				*ft_applyflagthree(t_case *block, char *s);
+char				*ft_minimalize(char *str);
+char				*ft_itoap(long long nb);
 int					ft_putwstr(wchar_t *str);
 int					ft_putwchar(wchar_t c);
 int					ft_printlst(t_case *start);

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_putwchar(wchar_t wc)
+int		ft_begin(wchar_t wc)
 {
 	int nb;
 
@@ -28,14 +28,23 @@ int		ft_putwchar(wchar_t wc)
 		ft_putchar((wc & 0x3F) + 0x80);
 		nb += 2;
 	}
-	else if (wc <= 0xFFFF)
+	return (nb);
+}
+
+int		ft_putwchar(wchar_t wc)
+{
+	int nb;
+
+	nb = 0;
+	nb = ft_begin(wc);
+	if (wc <= 0xFFFF && nb == 0)
 	{
 		ft_putchar((wc >> 12) + 0xE0);
 		ft_putchar(((wc >> 6) & 0x3F) + 0x80);
 		ft_putchar((wc & 0x3F) + 0x80);
 		nb += 3;
 	}
-	else if (wc <= 0x10FFFF)
+	else if (wc <= 0x10FFFF && nb == 0)
 	{
 		ft_putchar((wc >> 18) + 0xF0);
 		ft_putchar(((wc >> 12) & 0x3F) + 0x80);

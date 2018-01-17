@@ -17,6 +17,11 @@ HEADER =	includes
 SRC =		srcs
 
 P_SRC = 	ft_newblck.c \
+			ft_minimalize.c \
+			ft_itoap.c \
+			ft_applybegin.c \
+			applyflagtwo.c \
+			ft_applyflagthree.c \
 			ft_printlst.c \
 			ft_fillstr.c \
 			ft_takespec.c \
