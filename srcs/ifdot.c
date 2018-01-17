@@ -67,7 +67,6 @@ void		ifdotthree(t_case *block, char **s)
 char		*ifdot(t_case *block, char *s, int sign, int *hey)
 {
 	char	*tmp;
-//	char	*leaked;
 
 	if (block->flag.spec == 's' || block->flag.spec == 'c')
 	{
@@ -79,26 +78,7 @@ char		*ifdot(t_case *block, char *s, int sign, int *hey)
 		}
 	}
 	else
-	{/*
-		tmp = s;
-		if (block->flag.neg && block->flag.dot > (int)ft_strlen(s) - 1)
-		{
-			leaked = ft_scs((block->flag.dot - ((int)ft_strlen(s) - 1)), '0');
-			s = ft_strjoin(leaked, s);
-			ft_strdel(&leaked);
-		}
-		else if (block->flag.dot > (int)ft_strlen(s))
-		{
-			leaked = ft_scs((block->flag.dot - ((int)ft_strlen(s))), '0');
-			s = ft_strjoin(leaked, s);
-			ft_strdel(&leaked);
-		}
-		else
-			s = ft_strdup(s);
-		if (tmp != s)
-			ft_strdel(&tmp);*/
-			ifdotthree(block, &s);
-	}
+		ifdotthree(block, &s);
 	if (block->flag.zero && block->flag.width)
 	{
 		*hey = 1;
