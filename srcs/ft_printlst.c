@@ -24,6 +24,26 @@ int		ft_flagwstr(t_case *start, int *size)
 	return (*size + ft_printlst(start->next));
 }
 
+void	ft_printstr(t_case *start, int *size)
+{
+	char *tmp;
+
+	tmp = start->content;
+	if (ft_strequ(start->content, "-nUlLl'-"))
+	{
+		if (start->flag.spec == 'C')
+		{
+			ft_putchar(0);
+			start->content = ft_strdup("");
+			*size = *size + 1;
+		}
+		else
+			start->content = ft_strdup("(null)");
+		ft_strdel(&tmp);
+	}
+	ft_putstr(start->content);
+}
+
 int		ft_printlst(t_case *start)
 {
 	int size;
@@ -47,7 +67,7 @@ int		ft_printlst(t_case *start)
 		return (size + ft_printlst(start->next));
 	}
 	else
-		ft_putstr(start->content);
+		ft_printstr(start, &size);
 	size = size + (ft_strlen(start->content));
 	return (size + ft_printlst(start->next));
 }

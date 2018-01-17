@@ -16,6 +16,8 @@ size_t		ft_strlen(const char *s)
 {
 	int		j;
 
+	if (s == NULL || ft_strequ(s, "") || !s)
+		return (0);
 	j = 0;
 	while (s[j] != '\0')
 		j++;

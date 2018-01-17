@@ -70,7 +70,13 @@ char		*ifdot(t_case *block, char *s, int sign, int *hey)
 
 	if (block->flag.spec == 's' || block->flag.spec == 'c')
 	{
-		if (block->flag.dot < (int)ft_strlen(s))
+		if (block->flag.dot == -1)
+		{
+			s = ft_strdup("");
+			if (block->flag.width)
+				s = ft_scs(block->flag.width, ' ');
+		}
+		else if (block->flag.dot < (int)ft_strlen(s))
 		{
 			tmp = s;
 			s = ft_strndup(s, block->flag.dot);

@@ -29,7 +29,7 @@ char		*transforms(t_case *block, char *s, char *tmp)
 	i = 0;
 	if (block->flag.sharp && (block->flag.spec == 'X' ||
 block->flag.spec == 'x') && block->flag.dot != -1 &&
-ft_strcmp("0", s) && block->flag.zero)
+!ft_strequ("0", s) && block->flag.zero)
 	{
 		ft_move(s, &i);
 		tmp = s;

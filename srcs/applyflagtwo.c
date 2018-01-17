@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_applyflag.c                                     :+:      :+:    :+:   */
+/*   ft_printlst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/17 13:14:08 by briviere         ###   ########.fr       */
+/*   Created: 2017/12/06 16:34:04 by rkrief            #+#    #+#             */
+/*   Updated: 2018/01/15 19:30:22 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char		*applyflagtwo(t_case *block, char *s, int sign)
 	}
 	if (block->flag.sharp && (block->flag.spec == 'X' ||
 block->flag.spec == 'x' || block->flag.spec == 'o') && block->flag.dot != -1 &&
-			(ft_strcmp("0", s) != 0) && !block->flag.zero)
+			(!ft_strequ("0", s)) && !block->flag.zero)
 	{
 		if (block->flag.spec == 'X')
 			s = ft_strjoin("0X", s);

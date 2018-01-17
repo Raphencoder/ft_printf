@@ -19,6 +19,8 @@ char		*ft_strdup(const char *s1)
 	int		j;
 
 	i = 0;
+	if (s1 == NULL || !s1)
+		return (NULL);
 	if (((clone = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1)) == 0))
 		return (NULL);
 	while (s1[i])

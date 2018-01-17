@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findspec.c                                      :+:      :+:    :+:   */
+/*   ft_printlst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 17:58:19 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/17 12:49:28 by briviere         ###   ########.fr       */
+/*   Created: 2017/12/06 16:34:04 by rkrief            #+#    #+#             */
+/*   Updated: 2018/01/15 19:30:22 by rkrief           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,12 @@ char	*ifnotdori(va_list arglst, char *flag, char *s)
 	else if (ft_strequ(flag, "j"))
 		res = ft_choosebase(s, va_arg(arglst, uintmax_t), flag);
 	else if (ft_strequ(flag, "z"))
-		res = ft_choosebase(s, va_arg(arglst, unsigned int), flag);
+		res = ft_choosebase(s, (uintmax_t)va_arg(arglst, size_t), flag);
 	else if (ft_strequ(flag, "h"))
 		res = ft_choosebase(s, (unsigned short)va_arg(arglst, int), flag);
+	else if (ft_strequ(flag, "hh"))
+		res = ft_choosebase(s, (unsigned char)va_arg(arglst,
+unsigned int), flag);
 	else
 		res = ft_choosebase(s, va_arg(arglst, unsigned int), flag);
 	return (res);
@@ -76,7 +79,8 @@ char	*ft_findspectwo(t_case *block, va_list arglst, char *flag, char *s)
 	else if (block->flag.spec == 'u' || block->flag.spec == 'o' ||
 block->flag.spec == 'x' || block->flag.spec == 'X' || block->flag.spec == 'p')
 		res = ifnotdori(arglst, flag, s);
-	else if (ft_strequ(s, "C") || (ft_strequ(s, "lc") || ft_strequ(s, "c")))
+	else if (ft_strequ(s, "C") || (ft_strequ(s, "lc") || ft_strequ(s, "c"))
+	|| block->flag.spec == 'C')
 	{
 		if (ft_strequ(s, "c"))
 			res = ft_intc(va_arg(arglst, int), block);
@@ -94,7 +98,7 @@ char	*issorwchar(char *s, t_case *block, va_list arglst, char *flag)
 	char *res;
 
 	res = 0;
-	if (ft_strequ(s, "S") || ft_strequ(s, "ls"))
+	if (ft_strequ(s, "S") || ft_strequ(s, "ls") || block->flag.spec == 'S')
 	{
 		block->flag.wstr = va_arg(arglst, wchar_t*);
 		if (s == NULL)
@@ -105,7 +109,7 @@ char	*issorwchar(char *s, t_case *block, va_list arglst, char *flag)
 	else if (ft_strequ(s, "s"))
 	{
 		res = va_arg(arglst, char*);
-		if (res == NULL)
+		if (res == NULL || !res)
 			res = ft_strdup("(null)");
 		else
 			res = ft_strdup(res);
