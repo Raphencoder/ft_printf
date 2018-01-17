@@ -19,17 +19,17 @@
 **	It calls the function mvinlst who will help to set the flags.
 */
 
-void		ft_fillstrtwo(char *str, int *i, int *j, t_case **curr)
+char		*ft_fillstrtwo(char *str, int *i, int *j, t_case **curr)
 {
 	if (str[*i] == 0)
-		return ;
+		return (str + *i);
 	if (str[*i + 1] == '%')
 	{
 		(*curr)->next = ft_newblck("%%", 0, 2);
 		*curr = (*curr)->next;
 		*i = *i + 2;
 		*j = *i;
-		return ;
+		return (str + *i);
 	}
 	if (str[*i] == '%')
 		*i = *i + 1;
@@ -42,6 +42,8 @@ void		ft_fillstrtwo(char *str, int *i, int *j, t_case **curr)
 		*j = *i;
 		*i = *i + 1;
 	}
+	str = str + *i;
+	return (str);
 }
 
 void		ft_initialize(int *i, int *j)
@@ -71,8 +73,7 @@ t_case		*ft_fillstr(char *str)
 			curr = curr->next;
 			j = i;
 		}
-		ft_fillstrtwo(str, &i, &j, &curr);
-		str = str + i;
+		str = ft_fillstrtwo(str, &i, &j, &curr);
 		ft_initialize(&i, &j);
 	}
 	curr = start->next;
