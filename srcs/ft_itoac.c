@@ -23,7 +23,6 @@ static int		ft_len_int(long long n)
 
 static char		*ft_while_itoa(int len_int, char *str, long long nbr, int m)
 {
-	
 	if (m == 1)
 	{
 		str[len_int--] = '0' + ((nbr + m) % 10);
