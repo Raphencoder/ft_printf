@@ -12,21 +12,8 @@
 
 #include "ft_printf.h"
 
-void	ft_call(t_case *block, va_list arglst)
+void	ft_null(t_case *block)
 {
-	if (block == NULL)
-		block = NULL;
-	if (!block)
-		return ;
-	block->content = ft_findspec(block, arglst);
-	if (!block->content)
-		return ft_call(block->next, arglst);
-	if (ft_strequ(block->content, "-nUlLl'-"))
-		return ft_call(block->next, arglst);
-	if ((block->content)[0] == '-') 
-		block->flag.neg = 1;
-	if (block->flag.spec == -1)
-		return ft_call(block->next, arglst);
 	if (((ft_strequ(block->content, "") || block->content == NULL) &&
 				block->flag.spec) && block->next == NULL)
 	{
@@ -42,5 +29,23 @@ void	ft_call(t_case *block, va_list arglst)
 		}
 		block->content = ft_applyflag(block, block->content);
 	}
+}
+
+void	ft_call(t_case *block, va_list arglst)
+{
+	if (block == NULL)
+		block = NULL;
+	if (!block)
+		return ;
+	block->content = ft_findspec(block, arglst);
+	if (!block->content)
+		return (ft_call(block->next, arglst));
+	if (ft_strequ(block->content, "-nUlLl'-"))
+		return (ft_call(block->next, arglst));
+	if ((block->content)[0] == '-')
+		block->flag.neg = 1;
+	if (block->flag.spec == -1)
+		return (ft_call(block->next, arglst));
+	ft_null(block);
 	ft_call(block->next, arglst);
 }
