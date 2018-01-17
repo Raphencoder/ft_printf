@@ -12,7 +12,19 @@
 
 #include "ft_printf.h"
 
-int	ft_printlst(t_case *start)
+void	ft_flagwidth(t_case *start, int *size)
+{
+	ft_putstr(ft_scs(start->flag.width - 1, ' '));
+	*size = *size + (start->flag.width - 1);
+}
+
+int		ft_flagwstr(t_case *start, int *size)
+{
+	*size = *size + ft_putwstr(start->flag.wstr);
+	return (*size + ft_printlst(start->next));
+}
+
+int		ft_printlst(t_case *start)
 {
 	int size;
 
@@ -22,19 +34,13 @@ int	ft_printlst(t_case *start)
 	if (((int)start->content_size) == ((int)-1))
 	{
 		if (start->flag.width)
-		{
-			ft_putstr(ft_scs(start->flag.width - 1, ' '));
-			size = size + (start->flag.width - 1);
-		}
+			ft_flagwidth(start, &size);
 		ft_putchar(0);
 		size = size + 1;
 		return (size + ft_printlst(start->next));
 	}
 	if (start->flag.wstr)
-	{
-		size = size + ft_putwstr(start->flag.wstr);
-		return (size + ft_printlst(start->next));
-	}
+		return (ft_flagwstr(start, &size));
 	if (start->flag.c)
 	{
 		size = size + ft_putwchar(start->flag.c);

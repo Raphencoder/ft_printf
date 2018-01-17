@@ -34,6 +34,14 @@ int		ft_ifdot(t_case *block, int i)
 	return (i);
 }
 
+void	ifdigit(t_case *block, int *i)
+{
+	block->flag.width = ft_atoi(block->content + *i);
+	while (ft_isdigit((block->content)[*i]))
+		*i = *i + 1;
+	*i = *i - 1;
+}
+
 void	ft_putflags(t_case *block)
 {
 	int	i;
@@ -53,12 +61,7 @@ void	ft_putflags(t_case *block)
 		else if ((block->content)[i] == ' ')
 			block->flag.space = 1;
 		else if (ft_isdigit((block->content)[i]) == 1)
-		{
-			block->flag.width = ft_atoi(block->content + i);
-			while (ft_isdigit((block->content)[i]))
-				i++;
-			i--;
-		}
+			ifdigit(block, &i);
 		i++;
 	}
 	if (block->flag.zero && block->flag.less)

@@ -15,7 +15,7 @@
 char		*ifdottwo(t_case *block, char *s, int sign)
 {
 	char	*tmp;
-	char	*leaked;
+	char	*leak;
 
 	if (sign)
 		sign = 1;
@@ -24,25 +24,50 @@ char		*ifdottwo(t_case *block, char *s, int sign)
 		tmp = s;
 		if (block->flag.sharp)
 		{
-			leaked = ft_scs((block->flag.width - (((int)ft_strlen(s)) + 2)), ' ');
-			s = ft_strjoin(leaked, s);
-			ft_strdel(&leaked);
+			leak = ft_scs((block->flag.width - (((int)ft_strlen(s)) + 2)), ' ');
+			s = ft_strjoin(leak, s);
+			ft_strdel(&leak);
 		}
 		else
 		{
-			leaked = ft_scs((block->flag.width - ((int)ft_strlen(s) + block->flag.plus)), ' ');
-			s = ft_strjoin(leaked, s);
-			ft_strdel(&leaked);
+			leak = ft_scs((block->flag.width - ((int)ft_strlen(s) +
+			block->flag.plus)), ' ');
+			s = ft_strjoin(leak, s);
+			ft_strdel(&leak);
 		}
 		ft_strdel(&tmp);
 	}
 	return (s);
 }
 
+void		ifdotthree(t_case *block, char **s)
+{
+	char	*leaked;
+	char	*tmp;
+
+	tmp = *s;
+	if (block->flag.neg && block->flag.dot > (int)ft_strlen(*s) - 1)
+	{
+		leaked = ft_scs((block->flag.dot - ((int)ft_strlen(*s) - 1)), '0');
+		*s = ft_strjoin(leaked, *s);
+		ft_strdel(&leaked);
+	}
+	else if (block->flag.dot > (int)ft_strlen(*s))
+	{
+		leaked = ft_scs((block->flag.dot - ((int)ft_strlen(*s))), '0');
+		*s = ft_strjoin(leaked, *s);
+		ft_strdel(&leaked);
+	}
+	else
+		*s = ft_strdup(*s);
+	if (tmp != *s)
+		ft_strdel(&tmp);
+}
+
 char		*ifdot(t_case *block, char *s, int sign, int *hey)
 {
 	char	*tmp;
-	char	*leaked;
+//	char	*leaked;
 
 	if (block->flag.spec == 's' || block->flag.spec == 'c')
 	{
@@ -54,7 +79,7 @@ char		*ifdot(t_case *block, char *s, int sign, int *hey)
 		}
 	}
 	else
-	{
+	{/*
 		tmp = s;
 		if (block->flag.neg && block->flag.dot > (int)ft_strlen(s) - 1)
 		{
@@ -71,7 +96,8 @@ char		*ifdot(t_case *block, char *s, int sign, int *hey)
 		else
 			s = ft_strdup(s);
 		if (tmp != s)
-			ft_strdel(&tmp);
+			ft_strdel(&tmp);*/
+			ifdotthree(block, &s);
 	}
 	if (block->flag.zero && block->flag.width)
 	{
