@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_begin.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:44 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/16 19:22:29 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/17 11:56:31 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,14 @@ int		ft_printf(char const *restrict format, ...)
 	if (!block)
 		return (0);
 	ft_call(block, arglst);
-	if (!block->content)
-		return (0);
 	size = ft_printlst(start);
 	while (start != NULL)
 	{
 		tmp = start;
 		start = start->next;
-//		free(tmp->content);
-//		if (tmp->flag.wstr)
-//			ft_strclr((char*)tmp->flag.wstr);
+		ft_strdel(&tmp->content);
 		ft_memdel((void**)&tmp);
 	}
-	free(start);
 	va_end(arglst);
 	return (size);
 }

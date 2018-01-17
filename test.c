@@ -76,5 +76,7 @@ int		main(void)
 	TEST("%x %#X %S %s%s\n", 1000, 1000, L"ݗݜशব", "test", "test2");
 	TEST("%s%s%s\n", "test", "test", "test");
 	TEST("%C\n", 15000);
+	TEST("%-.2s is a string", "this");
+	while (1);
 	return (0);
 }

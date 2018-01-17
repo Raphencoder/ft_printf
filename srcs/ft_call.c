@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 18:40:24 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/15 18:59:35 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/17 11:54:45 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	ft_call(t_case *block, va_list arglst)
 		return ft_call(block->next, arglst);
 	if (((ft_strequ(block->content, "") || block->content == NULL) &&
 				block->flag.spec) && block->next == NULL)
+	{
+		ft_strdel(&block->content);
 		block->content = ft_strdup("(null)");
+	}
 	else if (block->flag.spec)
 	{
 		if (block->flag.spec == '%')
@@ -40,5 +43,4 @@ void	ft_call(t_case *block, va_list arglst)
 		block->content = ft_applyflag(block, block->content);
 	}
 	ft_call(block->next, arglst);
-	return ;
 }

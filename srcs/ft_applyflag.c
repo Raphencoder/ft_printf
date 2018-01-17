@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:39 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/16 19:12:12 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/17 13:14:08 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,17 @@ char		*ft_applyflagthree(t_case *block, char *s)
 	if (block->flag.width && !block->flag.zero)
 	{
 		if (block->flag.less)
-			s = ft_strjoin(s, ft_scs((block->flag.width) - (((int)ft_strlen(s) + block->flag.space)), ' '));
+		{
+			tmp = ft_scs((block->flag.width) - (((int)ft_strlen(s) + block->flag.space)), ' ');
+			s = ft_strjoin(s, tmp);
+		}
 		else
-			s = ft_strjoin(ft_scs((block->flag.width) - (int)ft_strlen(s),
-						' '), s);
+		{
+			tmp = ft_scs((block->flag.width) - (int)ft_strlen(s),
+					' ');
+			s = ft_strjoin(tmp, s);
+		}
+		ft_strdel(&tmp);
 
 	}
 	if (block->flag.sharp && (block->flag.spec == 'X' ||
@@ -76,10 +83,13 @@ char		*ft_applyflagthree(t_case *block, char *s)
 			s = ft_strjoin("0x", s + i);
 		else if (block->flag.spec == 'x')
 			s = ft_strjoin("0", s + i);
+		else
+			s = ft_strdup(s);
 		if (i)
 		{
 			tmp = ft_strndup(tmp, i);
 			s = ft_strjoin(tmp, s);
+			ft_strdel(&tmp);
 		}
 	}
 	return (s);
@@ -113,6 +123,7 @@ char		*ft_applyflag(t_case *block, char *s)
 	int sign;
 	int hey;
 	char *tmp;
+	char	*leaked;
 	sign = 0;
 	hey = 0;
 	if (ft_strequ("0", s) && block->flag.dot == -2)
@@ -127,21 +138,36 @@ char		*ft_applyflag(t_case *block, char *s)
 		ft_strdel(&tmp);
 	tmp = s;
 	s = applyflagtwo(block, s, sign);
-	if (!ft_strequ(tmp, s))
+	if (tmp != s)
 		ft_strdel(&tmp);
 	if (block->flag.zero && block->flag.spec != 's' && block->flag.spec != 'c'
 			&& block->flag.dot == 0)
 	{
 		tmp = s;
-		s = ft_strjoin(ft_scs(block->flag.width - (int)ft_strlen(s), '0'), tmp);
-		if (!ft_strequ(tmp, s))
+		leaked = ft_scs(block->flag.width - (int)ft_strlen(s), '0');
+		s = ft_strjoin(leaked, tmp);
+		ft_strdel(&leaked);
+		if (tmp != s)
 			ft_strdel(&tmp);
 	}
 	if (block->flag.less && !block->flag.zero)
-		s = ft_strjoin(s, ft_scs((block->flag.width) - ((int)ft_strlen(s) + block->flag.space), ' '));
+	{
+		tmp = s;
+		leaked = ft_scs((block->flag.width) - ((int)ft_strlen(s) + block->flag.space), ' ');
+		s = ft_strjoin(s, leaked);
+		ft_strdel(&tmp);
+		ft_strdel(&leaked);
+	}
+	tmp = s;
 	s = ft_applyflagthree(block, s);
+	if (tmp != s)
+		ft_strdel(&tmp);
 	if (block->flag.space && !block->flag.plus)
+	{
+		tmp = s;
 		s = ft_strjoin(" ", s);
+		ft_strdel(&tmp);
+	}
 	if ((sign || block->flag.neg) && (block->flag.zero || block->flag.dot))
 	{
 		s = ft_deletechar(s, '-');
@@ -151,8 +177,8 @@ char		*ft_applyflag(t_case *block, char *s)
 	{
 		tmp = s;
 		s = ft_putspacetwo(block, tmp);
-		if (!ft_strequ(s, tmp))
-			free(tmp);
+		if (s != tmp)
+			ft_strdel(&tmp);
 	}
 	return (s);
 }

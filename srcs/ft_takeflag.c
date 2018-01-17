@@ -6,7 +6,7 @@
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 15:16:04 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/15 13:33:43 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/17 11:18:39 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ char	*ft_takeflag(char *str)
 	while (str[i] && !ft_isspec(str[i]))
 		i++;
 	if (str[i] == 'U' || str[i] == 'D' || str[i] == 'O')
-	{
-		res = "l";
-		return (res);
-	}
+		return (ft_strdup("l"));
 	if (i == 0)
 		return (NULL);
 	res = ft_strndup(str, i);

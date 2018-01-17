@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_choosebase.c                                    :+:      :+:    :+:   */
+/*   ft_putspacetwo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:38:05 by rkrief            #+#    #+#             */
-/*   Updated: 2018/01/09 18:36:27 by rkrief           ###   ########.fr       */
+/*   Updated: 2018/01/17 12:53:41 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@ char	*ft_putspacetwo(t_case *block, char *s)
 {
 	int		i;
 	char	*tmp;
+	char	*leaked;
 
 	i = 0;
 	if (block->flag.width)
 	{
 		while (s[i] <= 32 && s[i])
 			i++;
-		tmp = s;
+		leaked = s;
 		s = ft_strjoin("+", s + i);
-		tmp = ft_strndup(tmp, i);
+		tmp = ft_strndup(leaked, i);
+		ft_strdel(&leaked);
+		leaked = s;
 		s = ft_strjoin(tmp, s);
+		ft_strdel(&tmp);
+		ft_strdel(&leaked);
 	}
 	else
 		s = ft_strjoin("+", s);
