@@ -6,7 +6,7 @@
 #    By: rkrief <rkrief@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/06 15:37:08 by rkrief            #+#    #+#              #
-#    Updated: 2018/01/17 13:10:34 by briviere         ###   ########.fr        #
+#    Updated: 2018/01/17 22:21:54 by rkrief           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,7 @@ L_SRC =		libft/ft_putchar.c \
 OBJ =		$(patsubst libft/%.c, libft/%.o, $(L_SRC))\
 			$(patsubst $(SRC)/%.c, $(SRC)/%.o, $(SRCS))
 
-FLAG =		 -Wall -Werror -Wextra -g
+FLAG =		 -Wall -Werror -Wextra
 
 all :		$(NAME)
 
