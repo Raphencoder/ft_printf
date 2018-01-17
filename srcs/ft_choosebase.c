@@ -37,8 +37,8 @@ char	*ft_itoabase(char *base, uintmax_t nb)
 char	*ft_itoau(unsigned long long nb)
 {
 	unsigned long long	clone;
-	int			i;
-	char		*res;
+	int					i;
+	char				*res;
 
 	if ((int)nb < 0)
 		nb = 4294967295;
@@ -60,12 +60,25 @@ char	*ft_itoau(unsigned long long nb)
 	return (res);
 }
 
+char	*ifxorp(long long nb, int j)
+{
+	char *tmp;
+	char *res;
+
+	if (j == 'p')
+	{
+		tmp = ft_itoabase("0123456789abcdef", nb);
+		res = ft_strjoin("0x", tmp);
+		free(tmp);
+		return (res);
+	}
+	return (ft_itoabase("0123456789abcdef", nb));
+}
+
 char	*ft_choosebase(char *str, long long nb, char *flag)
 {
 	int i;
 	int	j;
-	char	*tmp;
-	char	*res;
 
 	i = 0;
 	j = 0;
@@ -79,16 +92,7 @@ char	*ft_choosebase(char *str, long long nb, char *flag)
 	if (j == 'o')
 		return (ft_itoabase("01234567", nb));
 	else if (j == 'x' || j == 'p')
-	{
-		if (j == 'p')
-		{
-			tmp = ft_itoabase("0123456789abcdef", nb);
-			res = ft_strjoin("0x", tmp);
-			free(tmp);
-			return (res);
-		}
-		return (ft_itoabase("0123456789abcdef", nb));
-	}
+		return (ifxorp(nb, j));
 	else if (j == 'X')
 		return (ft_itoabase("0123456789ABCDEF", nb));
 	else if (j == 'u')
